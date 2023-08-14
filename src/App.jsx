@@ -9,7 +9,10 @@ function App() {
   // }, []);
   console.log(data);
   return (
-    <>{data.loading === false && <img src={data.dataArr.obj[0].img || ""} />}</>
+    <>
+      <img src={data.dataArr.about[0].img} />
+      <img src={data.dataArr.services[0].img} />
+    </>
   );
 }
 

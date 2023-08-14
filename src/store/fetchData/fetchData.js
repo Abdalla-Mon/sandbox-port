@@ -3,8 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import data from "../../db.json";
 const initialState = {
-  loading: false,
-  error: "",
   dataArr: data,
 };
 
