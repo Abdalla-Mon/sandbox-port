@@ -2,7 +2,7 @@
   "obj": [
     {
       "id": 1,
-      "img": "./src/assets/sandbox-home/image.jpg"
+      "img": "./sandbox-home/image.jpg"
     }
   ]
 }
