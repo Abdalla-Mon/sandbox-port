@@ -41,12 +41,23 @@ function Header({ logo, classN }) {
 }
 
 function MobUl({ closed, setClosed }) {
+  function drawerClass() {
+    if (closed) {
+      return "drawer-animeted w-full lap:hidden absolute flex";
+    }
+    if (closed === false) {
+      return "drawer-closed  lap:hidden absolute drawer";
+    } else {
+      return "opacity-0";
+    }
+  }
   return (
     <div
       className={
-        (closed
-          ? "drawer-animeted w-full lap:hidden absolute flex"
-          : "drawer-closed  lap:hidden absolute ") + "drawer"
+        drawerClass()
+        // (closed
+        //   ? "drawer-animeted w-full lap:hidden absolute flex"
+        //   : "drawer-closed  lap:hidden absolute ") + "drawer"
       }
     >
       <div className="drawer-content h-full flex-col flex justify-between">
