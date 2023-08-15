@@ -1,0 +1,144 @@
+{
+  "about": [
+    {
+      "id": "ab-1",
+      "img": "./sandbox-home/about/about-1.jpg"
+    },
+    {
+      "id": "ab-2",
+      "img": "./sandbox-home/about/about-2.jpg"
+    },
+    {
+      "id": "ab-3",
+      "img": "./sandbox-home/about/about-3.jpg"
+    },
+    {
+      "id": "ab-4",
+      "img": "./sandbox-home/about/about-4.jpg"
+    }
+  ],
+  "services": [
+    {
+      "id": "se-1",
+      "img": "./sandbox-home/services/se-1.png",
+      "heading": "Marketing Automation",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit."
+    },
+    {
+      "id": "se-2",
+      "img": "./sandbox-home/services/se-2.png",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit.",
+      "heading": "Project Management"
+    },
+    {
+      "id": "se-3",
+      "img": "./sandbox-home/services/se-3.png",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit.",
+      "heading": "Web Analytics"
+    },
+    {
+      "id": "se-4",
+      "img": "./sandbox-home/services/se-4.png",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit.",
+      "heading": "SEO Services"
+    },
+    {
+      "id": "se-5",
+      "img": "./sandbox-home/services/se-5.png",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit.",
+      "heading": "Market Research"
+    },
+    {
+      "id": "se-6",
+      "img": "./sandbox-home/services/se-6.png",
+      "text": "Duis mollis gravida commodo id luctus erat porttitor ligula, eget lacinia odio sem aget elit.",
+      "heading": "Social Media Management"
+    }
+  ],
+  "case": [
+    {
+      "id": "cs-1",
+      "img": "./sandbox-home/case/cs-1.jpg",
+      "heading": "Ligula tristique quis risus",
+      "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
+      "date": "14 Apr 2022",
+      "sub-title": "coding"
+    },
+    {
+      "id": "cs-2",
+      "img": "./sandbox-home/case/cs-2.jpg",
+      "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
+      "heading": "ullam id dolor elit id nibh",
+      "date": "16 May 2022",
+      "sub-title": "Workspace"
+    },
+    {
+      "id": "cs-3",
+      "img": "./sandbox-home/case/cs-3.jpg",
+      "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
+      "heading": "Ultricies fusce porta elit",
+      "date": "11 June 2022",
+      "sub-title": "Meeting"
+    }
+  ],
+  "whyus": [
+    {
+      "id": "wy-1",
+      "img": "./sandbox-home/whyus/wy-1.png",
+      "heading": "Easy Usage",
+      "text": "Duis mollis commodo luctus cursus commodo tortor."
+    },
+    {
+      "id": "wy-2",
+      "img": "./sandbox-home/whyus/wy-2.png",
+      "text": "Duis mollis commodo luctus cursus commodo tortor.",
+      "heading": "Fast Transactions"
+    },
+    {
+      "id": "wy-3",
+      "img": "./sandbox-home/whyus/wy-3.png",
+      "text": "Duis mollis commodo luctus cursus commodo tortor.",
+      "heading": "Secure Payments"
+    }
+  ],
+  "whyus2": [
+    {
+      "id": "wy-1",
+      "img": "./sandbox-home/whyus2/wy-1.jpg"
+    },
+    {
+      "id": "wy-2",
+      "img": "./sandbox-home/whyus2/wy-2.jpg"
+    },
+    {
+      "id": "wy-3",
+      "img": "./sandbox-home/whyus2/wy-3.jpg"
+    }
+  ],
+  "team": {
+    "team-back": {
+      "id": "tm-back",
+      "img": "./sandbox-home/team/team-back.jpg"
+    },
+    "tm": [
+      {
+        "id": "tm-1",
+        "img": "./sandbox-home/team/tm-1",
+        "heading": "abdalla ahmed",
+        "text": "financial analyst"
+      },
+      {
+        "id": "tm-2",
+        "img": "./sandbox-home/team/tm-2",
+        "heading": "amany abdalla",
+        "text": "marketing specialist"
+      },
+      {
+        "id": "tm-3",
+        "img": "./sandbox-home/team/tm-3",
+        "heading": "marzouq abdalla",
+        "text": "sales specialist"
+      }
+    ]
+  }
+}

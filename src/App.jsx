@@ -1,17 +1,13 @@
-import { useSelector, useDispatch } from "react-redux";
-// import { fetchData } from "./store/fetchData/fetchData";
-import { useEffect } from "react";
+import Home from "./component/home/Home";
+import Navbar from "./component/router/Navbar";
+import data from "./home-imgs.json";
+
 function App() {
-  const data = useSelector((state) => state.data);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchData());
-  // }, []);
   console.log(data);
   return (
     <>
-      <img src={data.dataArr.about[0].img} />
-      <img src={data.dataArr.services[0].img} />
+      <Navbar />
+      <Home />
     </>
   );
 }
