@@ -92,7 +92,8 @@ header {
   }
 }
 .drawer,
-.drawer-closed {
+.drawer-closed,
+.drawer-animeted {
   height: 100vh;
 
   z-index: 1000;
@@ -176,7 +177,7 @@ header {
   }
 }
 
-.drawer {
+.drawer-animeted {
   display: flex;
   .drawer-content {
     position: absolute;

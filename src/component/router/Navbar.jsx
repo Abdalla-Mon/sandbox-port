@@ -9,7 +9,7 @@ export default function Navbar() {
   return <Header logo={"./sandbox-home/logo/logo-light.png"} />;
 }
 function Header({ logo, classN }) {
-  const [closed, setClosed] = useState(false);
+  const [closed, setClosed] = useState(null);
 
   return (
     <header className={classN}>
@@ -44,9 +44,9 @@ function MobUl({ closed, setClosed }) {
   return (
     <div
       className={
-        closed
-          ? "drawer w-full lap:hidden absolute flex"
-          : "drawer-closed  lap:hidden absolute "
+        (closed
+          ? "drawer-animeted w-full lap:hidden absolute flex"
+          : "drawer-closed  lap:hidden absolute ") + "drawer"
       }
     >
       <div className="drawer-content h-full flex-col flex justify-between">
@@ -79,7 +79,7 @@ function MobUl({ closed, setClosed }) {
   );
 }
 function Ul({ className }) {
-  const [page, setPage] = useState(false);
+  const [page, setPage] = useState(null);
 
   return (
     <ul className={className}>
