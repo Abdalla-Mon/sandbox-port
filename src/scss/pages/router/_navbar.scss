@@ -92,7 +92,6 @@ header {
   }
 }
 .drawer,
-.drawer-closed,
 .drawer-animeted {
   height: 100vh;
 
@@ -132,14 +131,17 @@ header {
       }
     }
     .pages-nav {
-      //height: 0;
+      height: 0;
       overflow: hidden;
-      animation: close forwards 0.7s linear;
-      -webkit-animation: close forwards 0.7s linear;
+    }
+    .pages-nav-closed {
+      // animation: close forwards 0.7s linear;
+      // -webkit-animation: close forwards 0.7s linear;
+      height: 0px;
     }
     .page-nav-show {
-      animation: show-full forwards 0.7s linear;
-      -webkit-animation: show-full forwards 0.7s linear;
+      animation: show-full forwards 0.6s linear;
+      -webkit-animation: show-full forwards 0.6s linear;
     }
     .page-links {
       padding: 8px 20px;
@@ -193,7 +195,6 @@ header {
   }
 }
 .drawer-closed {
-  // z-index: -1;
   .drawer-content {
     position: relative;
     animation: reverse-transformX 0.3s forwards ease-in;
@@ -202,16 +203,14 @@ header {
   .drawer-closer {
     opacity: 0;
   }
-  animation: zIndex forwards 0.3s linear;
-  -webkit-animation: zIndex forwards 0.3s linear;
+  animation: reverse-transformX forwards 0.3s linear;
+  -webkit-animation: reverse-transformX forwards 0.3s linear;
 }
-@keyframes zIndex {
+@keyframes display {
   0% {
-    z-index: 10000;
     display: block;
   }
   100% {
-    z-index: -1;
     display: none;
   }
 }

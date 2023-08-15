@@ -80,7 +80,16 @@ function MobUl({ closed, setClosed }) {
 }
 function Ul({ className }) {
   const [page, setPage] = useState(null);
-
+  function pageClass() {
+    if (page) {
+      return "page-nav-show pages-nav";
+    }
+    if (page === false) {
+      return "pages-nav pages-nav-closed";
+    } else {
+      return "pages-nav";
+    }
+  }
   return (
     <ul className={className}>
       {navList.map((e) => {
@@ -90,9 +99,7 @@ function Ul({ className }) {
               <>
                 <li className="pages relative">
                   <a onClick={() => setPage(!page)}>{e}</a>
-                  <ul
-                    className={page ? "page-nav-show pages-nav" : "pages-nav"}
-                  >
+                  <ul className={pageClass()}>
                     {pages.map((el) => {
                       return (
                         <li key={el}>
