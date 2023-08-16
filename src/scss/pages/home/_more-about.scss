@@ -113,18 +113,5 @@
     @media (min-width: 992px) {
       width: 40%;
     }
-    .lower-area {
-      margin-bottom: 6px;
-    }
-    .check {
-      background-color: #e0e9fa;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      svg {
-        font-size: 12px;
-        color: $blue-btn-color;
-      }
-    }
   }
 }

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import data from "../../home-imgs.json";
 import GridBox from "../fixedComponent/GridBox";
+import JustEle from "../fixedComponent/JustEle";
 const moreImg = data.about[3];
 export default function MoreAbout() {
   return (
@@ -37,11 +38,7 @@ function Left() {
     </div>
   );
 }
-let textArr = [
-  "Aenean eu leo quam. Pellentesque ornare.",
-  "Nullam quis risus eget urna mollis ornare.",
-  "Donec id elit non mi porta gravida at eget.",
-];
+
 function MoreAboutText() {
   return (
     <div className="more-about-text flex justify-center flex-col">
@@ -55,22 +52,7 @@ function MoreAboutText() {
         vestibulum at eros. Fusce dapibus, tellus ac cursus. Integer posuere
         erat a ante venenatis.
       </p>
-      {textArr.map((e, index) => {
-        return (
-          <div className="lower-area flex" key={index}>
-            <Check />
-            <p className="ml-3">{e}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function Check() {
-  return (
-    <div className="check flex justify-center items-center">
-      <FontAwesomeIcon icon="fa-solid fa-check" />
+      <JustEle />
     </div>
   );
 }
