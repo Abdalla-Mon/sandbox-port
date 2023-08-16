@@ -62,7 +62,7 @@
       "heading": "Ligula tristique quis risus",
       "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
       "date": "14 Apr 2022",
-      "sub-title": "coding"
+      "subtitle": "coding"
     },
     {
       "id": "cs-2",
@@ -70,7 +70,7 @@
       "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
       "heading": "ullam id dolor elit id nibh",
       "date": "16 May 2022",
-      "sub-title": "Workspace"
+      "subtitle": "Workspace"
     },
     {
       "id": "cs-3",
@@ -78,7 +78,7 @@
       "text": "Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.      ",
       "heading": "Ultricies fusce porta elit",
       "date": "11 June 2022",
-      "sub-title": "Meeting"
+      "subtitle": "Meeting"
     }
   ],
   "whyus": [

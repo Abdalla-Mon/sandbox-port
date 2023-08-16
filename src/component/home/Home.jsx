@@ -1,5 +1,7 @@
 import About from "./About";
+import Case from "./Case";
 import Landing from "./Landing";
+import MoreAbout from "./MoreAbout";
 import Services from "./Services";
 import Video from "./Video";
 
@@ -10,6 +12,8 @@ export default function Home() {
       <Video />
       <About />
       <Services />
+      <MoreAbout />
+      <Case />
     </>
   );
 }

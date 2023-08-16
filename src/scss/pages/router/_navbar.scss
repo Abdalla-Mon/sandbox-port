@@ -3,8 +3,8 @@
   position: fixed;
   width: 100%;
   z-index: 100;
-
   header {
+    box-shadow: $box-shadow;
     background-color: $bg-white;
     .right {
       svg {
