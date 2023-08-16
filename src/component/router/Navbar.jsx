@@ -161,7 +161,7 @@ function Ul({ className }) {
                   <a onClick={() => setPage(!page)}>{e}</a>
                   <motion.ul
                     initial={{ height: 0 }}
-                    animate={page ? { height: 140 } : { height: 0 }}
+                    animate={page ? { height: 160 } : { height: 0 }}
                     className={"pages-nav lap:hidden"}
                   >
                     {pages.map((el) => {

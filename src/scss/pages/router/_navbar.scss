@@ -3,19 +3,24 @@
   position: fixed;
   width: 100%;
   z-index: 100;
-  .pc-nav {
-    > li {
-      > a {
-        &:hover {
-          color: $blue-btn-color;
-        }
-      }
-    }
-  }
 
   header {
     background-color: $bg-white;
-    color: $heading-color;
+    .right {
+      svg {
+        color: $heading-color;
+      }
+    }
+    .pc-nav {
+      > li {
+        > a {
+          color: $heading-color;
+          &:hover {
+            color: $blue-btn-color;
+          }
+        }
+      }
+    }
   }
 }
 header {

@@ -237,12 +237,17 @@
   width: 100%;
   z-index: 100;
 }
-.header-animation .pc-nav > li > a:hover {
-  color: #3f78e0;
-}
 .header-animation header {
   background-color: #ffffff;
+}
+.header-animation header .right svg {
   color: #343f52;
+}
+.header-animation header .pc-nav > li > a {
+  color: #343f52;
+}
+.header-animation header .pc-nav > li > a:hover {
+  color: #3f78e0;
 }
 
 header {
