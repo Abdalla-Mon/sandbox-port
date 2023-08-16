@@ -15,7 +15,7 @@ export default function Landing() {
               every stage of your growth.
             </h1>
             <div className="home-btn flex justify-center">
-              <WhiteBtn text={"Explore now"} href={"#"} />
+              <WhiteBtn text={"Explore now"} />
             </div>
           </div>
         </div>

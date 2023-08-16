@@ -1,0 +1,32 @@
+@use "../../varibales/varibales" as *;
+
+.services {
+  padding: 80px 15px;
+  background-color: $black-color;
+  h4 {
+    color: $bg-white;
+    font-weight: bold;
+  }
+  h1 {
+    font-weight: bold;
+
+    color: $bg-white;
+    font-size: 2rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  .grid-box {
+    .left {
+      padding-left: 15px;
+      width: fit-content;
+    }
+    .right {
+      h3 {
+        color: $bg-white;
+      }
+      p {
+        color: $light-text;
+      }
+    }
+  }
+}

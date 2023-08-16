@@ -1,15 +1,59 @@
-// import "/public/sandbox-home/logo/logo-dark.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "/public/sandbox-home/logo/logo-light.png";
+
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
+import CloseBtn from "../fixedComponent/CloseBtn";
+
 let navList = ["home", "pages", "about", "contact"];
 let pages = ["services", "shop", "career", "pricing"];
 export default function Navbar() {
-  return <Header logo={"./sandbox-home/logo/logo-light.png"} />;
+  const [header, showHeader] = useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 400) {
+      showHeader(true);
+    } else {
+      showHeader(false);
+    }
+  });
+  let variants = {
+    showNav: {
+      // display: "block",
+      y: 0,
+      transition: {
+        ease: "easeIn",
+        duration: 0.3,
+      },
+    },
+  };
+  return (
+    <>
+      <Header logo={"./sandbox-home/logo/logo-light.png"} />
+      <motion.div
+        variants={variants}
+        initial={{
+          y: -100,
+        }}
+        animate={header ? "showNav" : { y: -100 }}
+        className="header-animation"
+      >
+        <Header
+          logo={"./sandbox-home/logo/logo-dark.png"}
+          bg={{ backgroundColor: "#3f78e0", color: "#ffffff" }}
+        />
+      </motion.div>
+    </>
+  );
 }
-function Header({ logo, classN }) {
-  const [closed, setClosed] = useState(null);
+function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
+  const [closed, setClosed] = useState(true);
 
   return (
     <header className={classN}>
@@ -24,13 +68,13 @@ function Header({ logo, classN }) {
               icon="fa-solid fa-cart-shopping"
               className="cart-icon"
             />
-            <Link to="login" className="login">
+            <Link to="login" className="login" style={bg}>
               Login
             </Link>
             <FontAwesomeIcon
               icon="fa-solid fa-bars"
               className="lap:hidden menu-icon"
-              onClick={() => setClosed(true)}
+              onClick={() => setClosed(false)}
             />
           </div>
         </nav>
@@ -41,34 +85,42 @@ function Header({ logo, classN }) {
 }
 
 function MobUl({ closed, setClosed }) {
-  function drawerClass() {
-    if (closed) {
-      return "drawer-animeted w-full lap:hidden absolute flex";
-    }
-    if (closed === false) {
-      return "drawer-closed  lap:hidden absolute drawer";
-    } else {
-      return "opacity-0";
-    }
-  }
+  const variants = {
+    hidden: {
+      display: "none",
+      transition: {
+        delay: 0.3,
+      },
+    },
+    show: {
+      display: "flex",
+      transition: {
+        duration: 0.1,
+      },
+    },
+  };
+
   return (
-    <div
-      className={
-        drawerClass()
-        // (closed
-        //   ? "drawer-animeted w-full lap:hidden absolute flex"
-        //   : "drawer-closed  lap:hidden absolute ") + "drawer"
-      }
+    <motion.div
+      variants={variants}
+      initial={{ display: "none" }}
+      animate={closed ? "hidden" : "show"}
+      className={"drawer  lap:hidden absolute flex"}
     >
-      <div className="drawer-content h-full flex-col flex justify-between">
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={closed ? { x: "-100%" } : { x: "0%" }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.3,
+        }}
+        className="drawer-content h-full flex-col flex justify-between"
+      >
         <div className="top-drawer">
           <div className="drawer-heading flex justify-between items-center">
             <h3>Sandbox</h3>
-            <FontAwesomeIcon
-              icon="fa-solid fa-circle-xmark"
-              className="close-icon"
-              onClick={() => setClosed(false)}
-            />
+
+            <CloseBtn className="close-icon" setClose={setClosed} />
           </div>
           <Ul className={"mob-nav lap:hidden"} />
         </div>
@@ -84,23 +136,20 @@ function MobUl({ closed, setClosed }) {
             <FontAwesomeIcon icon="fa-brands fa-youtube" />
           </div>
         </div>
-      </div>
-      <div className="drawer-closer" onClick={() => setClosed(false)}></div>
-    </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={closed ? { opacity: "0" } : { opacity: "0.6" }}
+        transition={{ ease: "easeOut", duration: 0.3 }}
+        className="drawer-closer"
+        onClick={() => setClosed(true)}
+      ></motion.div>
+    </motion.div>
   );
 }
 function Ul({ className }) {
   const [page, setPage] = useState(null);
-  function pageClass() {
-    if (page) {
-      return "page-nav-show pages-nav";
-    }
-    if (page === false) {
-      return "pages-nav pages-nav-closed";
-    } else {
-      return "pages-nav";
-    }
-  }
+
   return (
     <ul className={className}>
       {navList.map((e) => {
@@ -110,7 +159,22 @@ function Ul({ className }) {
               <>
                 <li className="pages relative">
                   <a onClick={() => setPage(!page)}>{e}</a>
-                  <ul className={pageClass()}>
+                  <motion.ul
+                    initial={{ height: 0 }}
+                    animate={page ? { height: 140 } : { height: 0 }}
+                    className={"pages-nav lap:hidden"}
+                  >
+                    {pages.map((el) => {
+                      return (
+                        <li key={el}>
+                          <Link className="page-links" to={el}>
+                            {el}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </motion.ul>
+                  <ul className={"pages-nav hidden lap:block"}>
                     {pages.map((el) => {
                       return (
                         <li key={el}>
@@ -134,4 +198,3 @@ function Ul({ className }) {
     </ul>
   );
 }
-function MobNavBar({ logo }) {}

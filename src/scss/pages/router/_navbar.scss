@@ -1,12 +1,31 @@
 @use "../../varibales/varibales" as *;
-
-header {
+.header-animation {
   position: fixed;
   width: 100%;
+  z-index: 100;
+  .pc-nav {
+    > li {
+      > a {
+        &:hover {
+          color: $blue-btn-color;
+        }
+      }
+    }
+  }
+
+  header {
+    background-color: $bg-white;
+    color: $heading-color;
+  }
+}
+header {
   background-color: transparent;
-  color: $bg-white;
-  z-index: 10000;
+  z-index: 100;
   padding: 5px 15px 0;
+  width: 100%;
+  position: absolute;
+  color: $bg-white;
+
   nav {
     min-height: 74px;
     .pc-nav {
@@ -14,7 +33,7 @@ header {
         > a {
           padding: 25px 20px;
           display: block;
-          font-size: 1.3rem;
+          font-size: 1.2rem;
           font-weight: bold;
           &:hover {
             color: #ffffffb2;
@@ -91,8 +110,7 @@ header {
     }
   }
 }
-.drawer,
-.drawer-animeted {
+.drawer {
   height: 100vh;
 
   z-index: 1000;
@@ -104,13 +122,17 @@ header {
       font-size: 1.6rem;
       font-weight: bold;
     }
-    svg {
-      color: $bg-white;
-      font-size: 30px;
-      cursor: pointer;
+    .close-icon {
+      .close-circle {
+        color: hsla(0, 0%, 100%, 0.08);
+      }
+      .close-x {
+        color: $bg-white;
+      }
     }
   }
   .drawer-content {
+    position: fixed;
     padding: 30px;
     width: 300px;
     background-color: $black-color;
@@ -134,15 +156,7 @@ header {
       height: 0;
       overflow: hidden;
     }
-    .pages-nav-closed {
-      // animation: close forwards 0.7s linear;
-      // -webkit-animation: close forwards 0.7s linear;
-      height: 0px;
-    }
-    .page-nav-show {
-      animation: show-full forwards 0.6s linear;
-      -webkit-animation: show-full forwards 0.6s linear;
-    }
+
     .page-links {
       padding: 8px 20px;
     }
@@ -172,91 +186,17 @@ header {
     }
   }
   .drawer-closer {
-    width: calc(100% - 300px);
+    position: fixed;
+
+    width: 100vw;
     height: 100%;
     background-color: $black-color;
     opacity: 0;
-  }
-}
-
-.drawer-animeted {
-  display: flex;
-  .drawer-content {
     position: absolute;
-    z-index: 20000;
+    z-index: -1;
+  }
+}
 
-    animation: transformX 0.3s forwards ease-in;
-    -webkit-animation: transformX 0.3s forwards ease-in;
-  }
-  .drawer-closer {
-    animation: opacity 0.4s ease-in forwards;
-    -webkit-animation: opacity 0.4s ease-in forwards;
-    width: 100%;
-  }
-}
-.drawer-closed {
-  .drawer-content {
-    position: relative;
-    animation: reverse-transformX 0.3s forwards ease-in;
-    -webkit-animation: reverse-transformX 0.3s forwards ease-in;
-  }
-  .drawer-closer {
-    opacity: 0;
-  }
-  animation: reverse-transformX forwards 0.3s linear;
-  -webkit-animation: reverse-transformX forwards 0.3s linear;
-}
-@keyframes display {
-  0% {
-    display: block;
-  }
-  100% {
-    display: none;
-  }
-}
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-@keyframes transformX {
-  0% {
-    transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
-  }
-}
-@keyframes reverse-transformX {
-  0% {
-    transform: translateX(0%);
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-  }
-}
 @keyframes transform {
   0% {
     transform: translateY(10px);
@@ -271,29 +211,5 @@ header {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
-  }
-}
-@keyframes show-full {
-  0% {
-    height: 0;
-  }
-  50% {
-    height: 70px;
-  }
-
-  100% {
-    height: 140px;
-  }
-}
-@keyframes close {
-  0% {
-    height: 140px;
-  }
-  50% {
-    height: 70px;
-  }
-
-  100% {
-    height: 0;
   }
 }
