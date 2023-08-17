@@ -219,16 +219,18 @@
   color: #ffffff;
   font-weight: bold;
 }
-.services .left img {
-  max-width: 80%;
-}
 .services h1 {
   color: #ffffff;
 }
 .services .grid-box .left {
-  padding-left: 15px;
-  width: -moz-fit-content;
-  width: fit-content;
+  flex: 1;
+}
+.services .grid-box .left img {
+  max-width: 80px;
+  margin: auto;
+}
+.services .grid-box .right {
+  flex: 2;
 }
 .services .grid-box .right h3 {
   color: #ffffff;
@@ -379,6 +381,9 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+.case .card p {
+  color: #60697b;
+}
 .case .img-container {
   cursor: pointer;
   overflow: hidden;
@@ -483,6 +488,121 @@
     top: 50%;
   }
 }
+.choose-us {
+  padding: 80px 15px;
+  background-color: #fefefe;
+}
+.choose-us p {
+  color: #60697b;
+}
+.choose-us .fixed-heading h4 {
+  color: #3554c0;
+}
+.choose-us .fixed-heading h1 {
+  color: #343f52;
+}
+.choose-us .grid-links {
+  margin-bottom: 40px;
+}
+.choose-us .mt-5 {
+  margin-top: 20px;
+}
+.choose-us .pl-2 {
+  padding-left: 10px;
+}
+.choose-us .why-link {
+  padding: 20px 16px 20px 24px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.choose-us .why-link:hover, .choose-us .why-link.active {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 18px 15px rgba(0, 0, 0, 0.08);
+}
+.choose-us .why-link .grid-box h3 {
+  color: #343f52;
+}
+.choose-us .why-link .grid-box .left {
+  flex: 1;
+}
+.choose-us .why-link .grid-box .left img {
+  max-width: 80px;
+  margin: auto;
+}
+.choose-us .why-link .grid-box .right {
+  flex: 2;
+}
+@media (min-width: 992px) {
+  .choose-us .route-ele .img-content {
+    width: 49%;
+  }
+}
+@media (max-width: 991px) {
+  .choose-us .route-ele .img-content {
+    margin-bottom: 30px;
+  }
+}
+.choose-us .route-ele .img-content img {
+  box-shadow: 0px 0px 12px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.choose-us .route-ele .img-content .left-imgs,
+.choose-us .route-ele .img-content .right-imgs,
+.choose-us .route-ele .img-content .img-container {
+  display: grid;
+  gap: 20px;
+}
+.choose-us .route-ele .img-content .left-imgs {
+  width: 48%;
+}
+.choose-us .route-ele .img-content .right-imgs {
+  width: 48%;
+}
+.choose-us .route-ele .img-content .wider {
+  width: 55% !important;
+}
+.choose-us .route-ele .img-content .smaller {
+  width: 40% !important;
+}
+.choose-us .route-ele .img-content .left-col-1 {
+  align-self: center;
+}
+.choose-us .route-ele .img-content .left-col-2 {
+  margin-left: auto;
+}
+.choose-us .route-ele .router-ele-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.choose-us .route-ele .router-ele-text h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #343f52;
+}
+.choose-us .route-ele .router-ele-text > p {
+  margin: 20px 0;
+}
+@media (min-width: 992px) {
+  .choose-us .route-ele .router-ele-text {
+    width: 47%;
+  }
+}
+.choose-us .route-ele .router-ele-text .blue-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 15px;
+}
+
 .header-animation {
   position: fixed;
   width: 100%;
@@ -500,6 +620,10 @@
 }
 .header-animation header .pc-nav > li > a:hover {
   color: #3f78e0;
+}
+
+.page-nav-box {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1490196078);
 }
 
 header {
@@ -526,6 +650,9 @@ header nav .pc-nav > li > a {
 }
 header nav .pc-nav > li > a:hover {
   color: rgba(255, 255, 255, 0.6980392157);
+}
+header nav .pc-nav > li > a > svg {
+  font-size: 16px;
 }
 header nav .pc-nav li {
   text-transform: capitalize;
@@ -612,7 +739,7 @@ header .right .menu-icon {
   background-color: #21262c;
 }
 .drawer .drawer-content ul > li > a {
-  display: block;
+  display: flex;
   text-transform: capitalize;
   font-size: 17px;
   font-weight: bold;
@@ -679,7 +806,7 @@ header .right .menu-icon {
 .blue-btn {
   cursor: pointer;
   display: block;
-  padding: 18px 28px 17px;
+  padding: 18px 28px 19px;
   font-size: 17px;
   font-weight: bold;
   border-radius: 10px;
@@ -748,6 +875,7 @@ header .right .menu-icon {
 
 .fixed-heading h4 {
   font-size: 18px;
+  font-weight: bold;
 }
 .fixed-heading h1 {
   font-weight: bold;

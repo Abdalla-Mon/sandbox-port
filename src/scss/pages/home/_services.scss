@@ -7,20 +7,21 @@
     color: $bg-white;
     font-weight: bold;
   }
-  .left {
-    img {
-      max-width: 80%;
-    }
-  }
+
   h1 {
     color: $bg-white;
   }
   .grid-box {
     .left {
-      padding-left: 15px;
-      width: fit-content;
+      flex: 1;
+
+      img {
+        max-width: 80px;
+        margin: auto;
+      }
     }
     .right {
+      flex: 2;
       h3 {
         color: $bg-white;
       }

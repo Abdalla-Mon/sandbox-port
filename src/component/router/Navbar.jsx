@@ -158,7 +158,12 @@ function Ul({ className }) {
             {e === "pages" ? (
               <>
                 <li className="pages relative">
-                  <a onClick={() => setPage(!page)}>{e}</a>
+                  <a
+                    onClick={() => setPage(!page)}
+                    className="flex justify-between"
+                  >
+                    {e} <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
+                  </a>
                   <motion.ul
                     initial={{ height: 0 }}
                     animate={page ? { height: 160 } : { height: 0 }}
@@ -174,7 +179,7 @@ function Ul({ className }) {
                       );
                     })}
                   </motion.ul>
-                  <ul className={"pages-nav hidden lap:block"}>
+                  <ul className={"pages-nav page-nav-box hidden lap:block"}>
                     {pages.map((el) => {
                       return (
                         <li key={el}>
