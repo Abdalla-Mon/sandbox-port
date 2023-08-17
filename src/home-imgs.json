@@ -190,19 +190,19 @@
     "tm": [
       {
         "id": "tm-1",
-        "img": "./sandbox-home/team/tm-1",
+        "img": "./sandbox-home/team/tm-1.jpg",
         "heading": "abdalla ahmed",
         "text": "financial analyst"
       },
       {
         "id": "tm-2",
-        "img": "./sandbox-home/team/tm-2",
+        "img": "./sandbox-home/team/tm-2.jpg",
         "heading": "amany abdalla",
         "text": "marketing specialist"
       },
       {
         "id": "tm-3",
-        "img": "./sandbox-home/team/tm-3",
+        "img": "./sandbox-home/team/tm-3.jpg",
         "heading": "marzouq abdalla",
         "text": "sales specialist"
       }

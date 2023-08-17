@@ -5,6 +5,7 @@ import Landing from "./Landing";
 import MoreAbout from "./MoreAbout";
 import Services from "./Services";
 import Video from "./Video";
+import OuTeam from "./OurTeam";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <MoreAbout />
       <Case />
       <ChooseUs />
+      <OuTeam />
     </>
   );
 }
