@@ -629,7 +629,7 @@
 header {
   background-color: transparent;
   z-index: 100;
-  padding: 5px 15px 0;
+  padding: 0 15px;
   width: 100%;
   position: absolute;
   color: #ffffff;
