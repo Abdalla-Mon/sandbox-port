@@ -28,19 +28,55 @@
 
 .lower-area {
   margin-bottom: 6px;
-
-  .check {
-    background-color: #e0e9fa;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    svg {
-      font-size: 12px;
-      color: $blue-btn-color;
-    }
+}
+.check {
+  background-color: #e0e9fa;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  svg {
+    font-size: 12px;
+    color: $blue-btn-color;
   }
 }
 
 .section-padding {
   padding: 80px 15px;
+}
+
+// video
+.video-container {
+  padding: 0 25px;
+  .video-ele {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+}
+.video-icons {
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  cursor: pointer;
+  .circle {
+    color: $bg-white;
+    font-size: 4.5rem;
+  }
+  .video-player {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+  }
+  animation: ripple 1.5s linear infinite;
+  -webkit-animation: ripple 1.5s linear infinite;
 }

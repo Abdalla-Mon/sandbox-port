@@ -2,17 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import CloseBtn from "../fixedComponent/CloseBtn";
 
 let navList = ["home", "pages", "about", "contact"];
 let pages = ["services", "shop", "career", "pricing"];
+
+function scrollFnc() {
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
 export default function Navbar() {
   const [header, showHeader] = useState(false);
   const { scrollY } = useScroll();
@@ -68,7 +66,7 @@ function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
               icon="fa-solid fa-cart-shopping"
               className="cart-icon"
             />
-            <Link to="login" className="login" style={bg}>
+            <Link to="login" className="login" style={bg} onClick={scrollFnc}>
               Login
             </Link>
             <FontAwesomeIcon
@@ -157,7 +155,7 @@ function Ul({ className }) {
           <>
             {e === "pages" ? (
               <>
-                <li className="pages relative">
+                <li className="pages relative" onClick={scrollFnc}>
                   <a
                     onClick={() => setPage(!page)}
                     className="flex justify-between"
@@ -171,7 +169,7 @@ function Ul({ className }) {
                   >
                     {pages.map((el) => {
                       return (
-                        <li key={el}>
+                        <li key={el} onClick={scrollFnc}>
                           <Link className="page-links" to={el}>
                             {el}
                           </Link>
@@ -182,7 +180,7 @@ function Ul({ className }) {
                   <ul className={"pages-nav page-nav-box hidden lap:block"}>
                     {pages.map((el) => {
                       return (
-                        <li key={el}>
+                        <li key={el} onClick={scrollFnc}>
                           <Link className="page-links" to={el}>
                             {el}
                           </Link>
@@ -193,8 +191,8 @@ function Ul({ className }) {
                 </li>
               </>
             ) : (
-              <li key={e}>
-                <Link to={e}>{e}</Link>
+              <li key={e} onClick={scrollFnc}>
+                <Link to={e === "home" ? "" : e}>{e}</Link>
               </li>
             )}
           </>

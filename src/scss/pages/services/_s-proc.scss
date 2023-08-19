@@ -1,0 +1,63 @@
+@use "../../varibales/varibales" as *;
+
+.proc,
+.video-section {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #edf2fc;
+}
+
+.video-section {
+  position: relative;
+  z-index: 1;
+  @media (min-width: 992px) {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 49%;
+      background-color: $primary-color;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+  }
+}
+
+.proc {
+  .fixed-heading {
+    h4 {
+      color: $sub-text;
+    }
+    h1 {
+      color: $heading-color;
+    }
+  }
+
+  .service-lower {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+  svg {
+    width: 56px;
+    height: 56px;
+    margin: auto;
+  }
+  .proc-1 {
+    .lineal-fill {
+      fill: #eea1a6;
+    }
+  }
+  .proc-2 {
+    .lineal-fill {
+      fill: #8fdcc6;
+    }
+  }
+  .proc-3 {
+    .lineal-fill {
+      fill: #fcd49b;
+    }
+  }
+}

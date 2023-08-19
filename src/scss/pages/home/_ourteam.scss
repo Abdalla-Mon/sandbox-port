@@ -42,6 +42,7 @@
   }
   padding: 0 15px 80px;
   .swiper-container {
+    cursor: default;
     overflow: hidden;
     @media (min-width: 768px) {
       margin-top: -150px;

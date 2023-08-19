@@ -1,1 +1,28 @@
 @forward "./colors";
+@use "./colors" as *;
+
+$padding: 80px 15px;
+
+.h-color {
+  color: $heading-color;
+}
+.text-color {
+  color: $dark-text;
+}
+.sub-h-color {
+  color: $sub-text;
+}
+
+.f-lg {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.p-section {
+  padding: $padding;
+}
+.lineal-stroke {
+  fill: #36496d;
+}
+.lineal-fill {
+  fill: #8caeec;
+}

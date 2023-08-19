@@ -1,0 +1,134 @@
+@use "../../varibales/varibales" as *;
+
+.pricing-top {
+  background-color: #edf2fc;
+  h1 {
+    margin-bottom: 0 !important;
+    padding-bottom: 50px;
+    color: $heading-color;
+  }
+  h4 {
+    color: $sub-text;
+  }
+}
+.pricing-top,
+.pricing-bottom {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.swiper-btn-container {
+  margin-bottom: 40px;
+  p {
+    color: $heading-color;
+    margin: 0 8px;
+    letter-spacing: -0.05rem;
+  }
+  .swiper-btn {
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+    background-color: $blue-btn-color;
+    border-radius: 50px;
+    padding: 4px;
+    .circle {
+      width: 25px;
+      height: 25px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.pricing-bottom {
+  background-color: $primary-color;
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 30%;
+    @media (max-width: 767px) {
+      height: 20%;
+    }
+    z-index: -1;
+    background-color: #edf2fc;
+  }
+
+  .card {
+    background-color: $primary-color;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 1.75rem rgba(30, 34, 40, 0.07);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin: auto 0;
+    height: fit-content;
+  }
+  .price-2 {
+    @media (min-width: 992px) {
+      padding: 20px 0;
+    }
+  }
+
+  .card-padding {
+    padding: 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > svg {
+      width: 56px;
+      height: 56px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h3 {
+      color: $heading-color;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .price-swapp {
+      min-height: 72px;
+      color: $heading-color;
+      > div {
+        margin-top: -20px;
+      }
+      h6 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-top: 8px;
+      }
+      span {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      p {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 13px;
+        margin-left: -5px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .price-card-lower {
+    color: $dark-text;
+    h5 {
+      margin-right: 5px;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use "../../varibales/varibales" as *;
+.solution {
+  background-color: $primary-color;
+
+  .sol-1,
+  .sol-2 {
+    @media (min-width: 992px) {
+      width: 65%;
+    }
+  }
+  .upper-sol-text,
+  .lower-sol-text {
+    @media (min-width: 992px) {
+      width: 45%;
+    }
+    p {
+      font-weight: bold;
+    }
+    span {
+      color: $heading-color;
+    }
+  }
+  .lower-area {
+    p {
+      flex: 1;
+      color: $dark-text;
+    }
+  }
+}
+
+.color-bar {
+  height: 10px;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.color-progess {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}

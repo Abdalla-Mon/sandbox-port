@@ -1,22 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-let textArr = [
+let textArrD = [
   "Aenean eu leo quam. Pellentesque ornare.",
   "Nullam quis risus eget urna mollis ornare.",
   "Donec id elit non mi porta gravida at eget.",
 ];
 
-export default function JustEle() {
+export default function JustEle({ textArr = textArrD, className }) {
   return (
     <>
-      {textArr.map((e, index) => {
-        return (
-          <div className="lower-area flex" key={index}>
-            <Check />
-            <p className="ml-3">{e}</p>
-          </div>
-        );
-      })}
+      <div className={"ele-container " + className}>
+        {textArr.map((e, index) => {
+          return (
+            <div className={"lower-area flex"} key={index}>
+              <Check />
+              <p className="ml-3">{e}</p>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

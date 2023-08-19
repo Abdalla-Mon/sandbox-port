@@ -1,4 +1,4 @@
-import { Route, Routes, NavLink } from "react-router-dom";
+import { Route, Routes, NavLink, Outlet } from "react-router-dom";
 import data from "../../home-imgs.json";
 import GridBox from "../fixedComponent/GridBox";
 import Heading from "../fixedComponent/FixedHeading";
@@ -24,6 +24,7 @@ export default function ChooseUs() {
           </div>
           <div className="routes">
             <ChooseRoutes />
+            {/* <Outlet /> */}
           </div>
         </div>
       </section>
@@ -31,21 +32,17 @@ export default function ChooseUs() {
   );
 }
 
-function ChooseRoutes() {
+export function ChooseRoutes() {
   let firstPath = whyUs[0].heading;
 
   return (
     <Routes>
-      <Route index element={<RouterEle path={firstPath} id={"wy-1"} />} />
-
-      {whyUs.map((e) => {
-        return (
-          <Route
-            path={e.heading}
-            element={<RouterEle id={e.id} key={e.heading} />}
-          />
-        );
-      })}
+      {/* <Route path="" element={<ChooseUs />}> */}
+      <Route index element={<RouterEle id={"wy-1"} />} />
+      <Route path={"wy-1"} element={<RouterEle id={"wy-1"} />} />
+      <Route path={"wy-2"} element={<RouterEle id={"wy-2"} />} />
+      <Route path={"wy-3"} element={<RouterEle id={"wy-3"} />} />
+      {/* </Route> */}
     </Routes>
   );
 }
@@ -64,7 +61,7 @@ function ChooseLinks() {
                   : "why-link"
                 : "why-link"
             }
-            to={e.heading}
+            to={e.id}
             key={e.heading}
             onClick={() => setActive(false)}
           >

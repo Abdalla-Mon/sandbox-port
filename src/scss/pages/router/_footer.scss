@@ -1,0 +1,79 @@
+@use "../../varibales/varibales" as *;
+
+footer {
+  background-color: $black-color;
+  padding: 80px 15px;
+  h1 {
+    color: $bg-white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  svg {
+    color: $bg-white;
+  }
+
+  li,
+  p {
+    color: $light-text;
+    width: fit-content;
+  }
+
+  .third-f {
+    li {
+      a {
+        display: block;
+        margin-bottom: 6px;
+        cursor: pointer;
+        &:hover {
+          color: $blue-btn-color;
+        }
+        transition: 0.3;
+        -webkit-transition: 0.3;
+        -moz-transition: 0.3;
+        -ms-transition: 0.3;
+        -o-transition: 0.3;
+      }
+    }
+  }
+  .four-f {
+    @media (min-width: 768px) and (max-width: 991px) {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+}
+footer {
+  .email {
+    display: flex;
+    label {
+      padding: 2px 20px;
+
+      width: 100%;
+      input {
+        width: 100%;
+        background-color: transparent;
+        color: $bg-white;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  button {
+    color: $bg-white;
+    background-color: $blue-btn-color;
+    padding: 0 20px;
+  }
+}
+footer {
+  .email {
+    border: 1px solid $blue-btn-color;
+
+    overflow: hidden;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+  }
+}

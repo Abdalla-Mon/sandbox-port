@@ -1,0 +1,74 @@
+@use "../../varibales/varibales" as *;
+
+.s-do {
+  background-color: $primary-color;
+
+  .do-imgs {
+    @media (max-width: 991px) {
+      margin-bottom: 40px;
+    }
+    .img-text {
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+    }
+    svg {
+      width: 56px;
+      height: 56px;
+    }
+    .do-1 {
+      @media (min-width: 768px) {
+        width: 48%;
+        padding-left: 30px;
+      }
+      .lineal-fill {
+        fill: #fcd49b;
+      }
+    }
+    .do-2 {
+      @media (min-width: 768px) {
+        width: 52%;
+        padding-top: 28px;
+      }
+      .lineal-fill {
+        fill: #eea1a6;
+      }
+    }
+    .do-3 {
+      @media (min-width: 768px) {
+        width: 43%;
+      }
+      .lineal-fill {
+        fill: #b0d4c1;
+      }
+    }
+    .do-4 {
+      @media (min-width: 768px) {
+        width: 57%;
+        padding-right: 25px;
+      }
+    }
+    h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $black-color;
+    }
+  }
+  @media (min-width: 992px) {
+    .do-imgs {
+      width: 56%;
+    }
+    .do-text {
+      width: 40%;
+    }
+  }
+  .do-btn {
+    width: fit-content;
+    .blue-btn {
+      background-color: $heading-color;
+      border-radius: 50px;
+    }
+  }
+}

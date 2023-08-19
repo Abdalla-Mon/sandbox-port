@@ -1,13 +1,19 @@
+import { Route, Routes } from "react-router-dom";
 import Home from "./component/home/Home";
+import Footer from "./component/router/Footer";
 import Navbar from "./component/router/Navbar";
-import data from "./home-imgs.json";
+import Services from "./component/services/Services";
 
 function App() {
-  console.log(data);
   return (
     <>
       <Navbar />
-      <Home />
+      {/* <Home /> */}
+      <Routes>
+        <Route path={"/*"} element={<Home />} />
+        <Route path="services" element={<Services />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
