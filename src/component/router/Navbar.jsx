@@ -68,7 +68,13 @@ function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
       <div className="container mx-auto">
         <nav className="flex justify-between w-full items-center">
           <div className="nav-brand">
-            <Link to="" onClick={scrollFnc}>
+            <Link
+              to=""
+              onClick={() => {
+                scrollFnc();
+                setClosed(true);
+              }}
+            >
               <img src={logo} alt="logo" />
             </Link>
           </div>
@@ -132,7 +138,11 @@ function MobUl({ closed, setClosed }) {
 
             <CloseBtn className="close-icon" setClose={setClosed} />
           </div>
-          <Ul className={"mob-nav lap:hidden"} />
+          <Ul
+            className={"mob-nav lap:hidden"}
+            setClose={setClosed}
+            close={closed}
+          />
         </div>
         <div className="bottom-drawer">
           <div className="c-links flex flex-col">
@@ -157,7 +167,7 @@ function MobUl({ closed, setClosed }) {
     </motion.div>
   );
 }
-function Ul({ className }) {
+function Ul({ className, setClose, close }) {
   const [page, setPage] = useState(null);
 
   return (
@@ -181,7 +191,13 @@ function Ul({ className }) {
                   >
                     {pages.map((el) => {
                       return (
-                        <li key={el} onClick={scrollFnc}>
+                        <li
+                          key={el}
+                          onClick={() => {
+                            scrollFnc();
+                            setClose(true);
+                          }}
+                        >
                           <Link className="page-links" to={el}>
                             {el}
                           </Link>
@@ -192,7 +208,13 @@ function Ul({ className }) {
                   <ul className={"pages-nav page-nav-box hidden lap:block"}>
                     {pages.map((el) => {
                       return (
-                        <li key={el} onClick={scrollFnc}>
+                        <li
+                          key={el}
+                          onClick={() => {
+                            scrollFnc();
+                            setClose(true);
+                          }}
+                        >
                           <Link className="page-links" to={el}>
                             {el}
                           </Link>
@@ -203,7 +225,13 @@ function Ul({ className }) {
                 </li>
               </>
             ) : (
-              <li key={e} onClick={scrollFnc}>
+              <li
+                key={e}
+                onClick={() => {
+                  scrollFnc();
+                  setClose(true);
+                }}
+              >
                 <Link to={e === "home" ? "" : e}>{e}</Link>
               </li>
             )}
