@@ -1015,7 +1015,7 @@ footer .email {
   min-height: 61vh;
   display: flex;
   align-items: center;
-  background-image: url(./sb-services/bg1.jpg);
+  background-image: url(/sb-services/bg1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -23,12 +23,22 @@ export default function Navbar() {
   });
   let variants = {
     showNav: {
-      // display: "block",
       y: 0,
+      display: "block",
+
       transition: {
         ease: "easeIn",
         duration: 0.3,
+        y: { delay: 0.1 },
+        display: {
+          duration: 0,
+        },
       },
+    },
+    hideNav: {
+      y: -100,
+      display: "none",
+      transition: {},
     },
   };
   return (
@@ -39,7 +49,7 @@ export default function Navbar() {
         initial={{
           y: -100,
         }}
-        animate={header ? "showNav" : { y: -100 }}
+        animate={header ? "showNav" : "hideNav"}
         className="header-animation"
       >
         <Header
