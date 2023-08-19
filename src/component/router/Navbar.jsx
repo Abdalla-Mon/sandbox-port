@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -58,7 +58,9 @@ function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
       <div className="container mx-auto">
         <nav className="flex justify-between w-full items-center">
           <div className="nav-brand">
-            <img src={logo} alt="logo" />
+            <Link to="" onClick={scrollFnc}>
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <Ul className={"pc-nav hidden lap:flex "} />
           <div className="right flex gap-3 items-center">
@@ -155,7 +157,7 @@ function Ul({ className }) {
           <>
             {e === "pages" ? (
               <>
-                <li className="pages relative" onClick={scrollFnc}>
+                <li className="pages relative">
                   <a
                     onClick={() => setPage(!page)}
                     className="flex justify-between"
