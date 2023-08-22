@@ -1,0 +1,161 @@
+@use "../../varibales/varibales" as *;
+.product-card {
+  h2 {
+    height: 52px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow: hidden;
+  }
+  .card-img {
+    height: -webkit-fill-available;
+    img {
+      height: 100%;
+    }
+    @media (min-width: 768px) {
+      max-width: 400px;
+    }
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    overflow: hidden;
+  }
+  .add-to-cart {
+    bottom: 0;
+    width: 100%;
+    background-color: #262b32cc;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(38, 43, 50, 1);
+    }
+    svg {
+      margin-bottom: 4px;
+    }
+    transition: 0.3;
+    -webkit-transition: 0.3;
+    -moz-transition: 0.3;
+    -ms-transition: 0.3;
+    -o-transition: 0.3;
+  }
+  .right-icons {
+    right: 0;
+    top: 0;
+    > div {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      svg {
+        color: rgba(38, 43, 50, 1);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: rgba(38, 43, 50, 1);
+        z-index: -1;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+      }
+      &:hover {
+        svg {
+          color: white;
+        }
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .card-body {
+    h5 {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $dark-text;
+    }
+    h2 {
+      color: $heading-color;
+      font-size: 1.6rem;
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+      &:hover {
+        color: $blue-color;
+      }
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -ms-transition: 0.3s;
+      -o-transition: 0.3s;
+    }
+    h6 {
+      color: $dark-text;
+    }
+  }
+}
+
+// animation
+
+.product-card {
+  .add-to-cart,
+  .right-icons {
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+  }
+
+  .right-icons {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    opacity: 0;
+  }
+  .add-to-cart {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    opacity: 0;
+  }
+
+  &:hover {
+    .add-to-cart {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      opacity: 1;
+    }
+    .right-icons {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

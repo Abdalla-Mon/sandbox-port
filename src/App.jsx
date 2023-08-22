@@ -3,28 +3,37 @@ import Home from "./component/home/Home";
 import Footer from "./component/router/Footer";
 import Navbar from "./component/router/Navbar";
 import Services from "./component/services/Services";
-import { commerce } from "./lb/commerce";
+import Products, { Page } from "./component/products/Products";
+import Loader from "./component/fixedComponent/Loader";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import SingleProductPage from "./component/products/SingleProductPage";
 function App() {
-  const [products, setProducts] = useState([]);
-
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
-  };
-
+  const data = useSelector((e) => e.data);
+  console.log(data);
+  const [load, setLoad] = useState(true);
   useEffect(() => {
-    fetchProducts();
+    window.onload = () => setLoad(false);
   }, []);
-  console.log(products);
+
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path={"/*"} element={<Home />} />
-        <Route path="services" element={<Services />} />
-      </Routes>
-      <Footer />
+      {load ? <Loader /> : null}
+      {load ? null : (
+        <>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/:prodId"
+              element={<SingleProductPage data={data} />}
+            />
+            <Route path={"/*"} element={<Home />}></Route>
+            <Route path="services" element={<Services />} />
+            <Route path="shop/*" element={<Products />}></Route>
+          </Routes>
+          <Footer />
+        </>
+      )}
     </>
   );
 }

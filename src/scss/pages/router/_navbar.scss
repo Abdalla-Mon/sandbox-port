@@ -2,22 +2,32 @@
 .header-animation {
   position: fixed;
   width: 100%;
-  z-index: 100;
+  z-index: 99;
   header {
     box-shadow: $box-shadow;
     background-color: $bg-white;
-    .right {
-      svg {
-        color: $heading-color;
-      }
+  }
+}
+.white-header {
+  background-color: white;
+  .login {
+    background-color: $blue-btn-color !important;
+    color: white !important;
+  }
+}
+.header-animation,
+.white-header {
+  .right {
+    svg {
+      color: $heading-color;
     }
-    .pc-nav {
-      > li {
-        > a {
-          color: $heading-color;
-          &:hover {
-            color: $blue-btn-color;
-          }
+  }
+  .pc-nav {
+    > li {
+      > a {
+        color: $heading-color;
+        &:hover {
+          color: $blue-btn-color;
         }
       }
     }
@@ -104,6 +114,12 @@ header {
     .cart-icon {
       font-size: 18px;
       cursor: pointer;
+    }
+    .cart-items {
+      font-weight: bold;
+      top: -12px;
+      left: 3px;
+      mix-blend-mode: difference;
     }
     .login {
       display: block;

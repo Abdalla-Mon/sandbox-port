@@ -1,18 +1,33 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { commerce } from "../../commerce/commerce";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import CloseBtn from "../fixedComponent/CloseBtn";
 
 let navList = ["home", "pages", "about", "contact"];
 let pages = ["services", "shop", "career", "pricing"];
 
-function scrollFnc() {
-  window.scrollTo({ top: 0, behavior: "instant" });
+function scrollFnc(setWhite) {
+  window.setTimeout(() => {
+    if (
+      window.location.hash === "#/" ||
+      window.location.hash === "" ||
+      window.location.hash === "#/services"
+    ) {
+      setWhite(false);
+    } else {
+      setWhite(true);
+    }
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 5);
 }
+
 export default function Navbar() {
   const [header, showHeader] = useState(false);
+  const [whiteColor, setWhite] = useState(true);
+
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 400) {
@@ -21,6 +36,19 @@ export default function Navbar() {
       showHeader(false);
     }
   });
+  useEffect(() => {
+    window.onload = () => {
+      if (
+        window.location.hash === "#/" ||
+        window.location.hash === "" ||
+        window.location.hash === "#/services"
+      ) {
+        return setWhite(false);
+      } else {
+        return setWhite(true);
+      }
+    };
+  }, []);
   let variants = {
     showNav: {
       y: 0,
@@ -43,7 +71,16 @@ export default function Navbar() {
   };
   return (
     <>
-      <Header logo={"./sandbox-home/logo/logo-light.png"} />
+      <Header
+        logo={
+          whiteColor
+            ? "./sandbox-home/logo/logo-dark.png"
+            : "./sandbox-home/logo/logo-light.png"
+        }
+        classN={whiteColor ? "white-header" : null}
+        setWhite={setWhite}
+        whiteColor={whiteColor}
+      />
       <motion.div
         variants={variants}
         initial={{
@@ -53,6 +90,8 @@ export default function Navbar() {
         className="header-animation"
       >
         <Header
+          setWhite={setWhite}
+          whiteColor={whiteColor}
           logo={"./sandbox-home/logo/logo-dark.png"}
           bg={{ backgroundColor: "#3f78e0", color: "#ffffff" }}
         />
@@ -60,9 +99,21 @@ export default function Navbar() {
     </>
   );
 }
-function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
+function Header({
+  logo,
+  classN,
+  bg = { backgroundColor: "#ffffff" },
+  whiteColor,
+  setWhite,
+}) {
   const [closed, setClosed] = useState(true);
-
+  const [cartItem, setCartItems] = useState(0);
+  useEffect(() => {
+    async function fetch() {
+      await commerce.cart.request().then((e) => setCartItems(e.total_items));
+    }
+    fetch();
+  });
   return (
     <header className={classN}>
       <div className="container mx-auto">
@@ -71,20 +122,26 @@ function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
             <Link
               to=""
               onClick={() => {
-                scrollFnc();
+                scrollFnc(setWhite);
                 setClosed(true);
               }}
             >
               <img src={logo} alt="logo" />
             </Link>
           </div>
-          <Ul className={"pc-nav hidden lap:flex "} />
-          <div className="right flex gap-3 items-center">
+          <Ul className={"pc-nav hidden lap:flex "} setWhite={setWhite} />
+          <div className="right flex gap-3 items-center relative">
+            <span className="absolute cart-items">{cartItem || 0}</span>
             <FontAwesomeIcon
               icon="fa-solid fa-cart-shopping"
               className="cart-icon"
             />
-            <Link to="login" className="login" style={bg} onClick={scrollFnc}>
+            <Link
+              to="login"
+              className="login"
+              style={bg}
+              onClick={() => scrollFnc(setWhite)}
+            >
               Login
             </Link>
             <FontAwesomeIcon
@@ -95,12 +152,12 @@ function Header({ logo, classN, bg = { backgroundColor: "#ffffff" } }) {
           </div>
         </nav>
       </div>
-      <MobUl closed={closed} setClosed={setClosed} />
+      <MobUl closed={closed} setClosed={setClosed} setWhite={setWhite} />
     </header>
   );
 }
 
-function MobUl({ closed, setClosed }) {
+function MobUl({ closed, setClosed, setWhite }) {
   const variants = {
     hidden: {
       display: "none",
@@ -142,6 +199,7 @@ function MobUl({ closed, setClosed }) {
             className={"mob-nav lap:hidden"}
             setClose={setClosed}
             close={closed}
+            setWhite={setWhite}
           />
         </div>
         <div className="bottom-drawer">
@@ -167,7 +225,7 @@ function MobUl({ closed, setClosed }) {
     </motion.div>
   );
 }
-function Ul({ className, setClose, close }) {
+function Ul({ className, setClose, close, setWhite }) {
   const [page, setPage] = useState(null);
 
   return (
@@ -194,7 +252,7 @@ function Ul({ className, setClose, close }) {
                         <li
                           key={el}
                           onClick={() => {
-                            scrollFnc();
+                            scrollFnc(setWhite);
                             setClose(true);
                           }}
                         >
@@ -211,7 +269,7 @@ function Ul({ className, setClose, close }) {
                         <li
                           key={el}
                           onClick={() => {
-                            scrollFnc();
+                            scrollFnc(setWhite);
                             setClose(true);
                           }}
                         >
@@ -228,7 +286,7 @@ function Ul({ className, setClose, close }) {
               <li
                 key={e}
                 onClick={() => {
-                  scrollFnc();
+                  scrollFnc(setWhite);
                   setClose(true);
                 }}
               >
