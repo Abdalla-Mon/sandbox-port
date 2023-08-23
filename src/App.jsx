@@ -12,8 +12,9 @@ function App() {
   const data = useSelector((e) => e.data);
   console.log(data);
   const [load, setLoad] = useState(true);
+
   useEffect(() => {
-    window.onload = () => setLoad(false);
+    setLoad(false);
   }, []);
 
   return (
