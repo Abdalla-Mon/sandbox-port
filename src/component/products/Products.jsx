@@ -107,9 +107,7 @@ export function Page({ arr }) {
   if (/\d/.test(num) === false) {
     num = 1;
   }
-  console.log(num);
   arr = [...arr].slice(9 * (num - 1), 9 * num);
-  console.log([].length);
   return (
     <div className="grid gap-10 lap:grid-cols-3 tab:grid-cols-2">
       {arr.length === 0 ? (

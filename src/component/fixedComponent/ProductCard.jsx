@@ -18,26 +18,28 @@ export default function ProductCard({ e }) {
       color: "#343f52",
     },
   }));
+  const message = "Added to cart";
+  const action = (snackbarId) => (
+    <>
+      <button
+        className="dismiss"
+        onClick={() => {
+          closeSnackbar(snackbarId);
+        }}
+      >
+        Dismiss
+      </button>
+      <Link to={"/cart"} className="snack-bar-cart">
+        View cart
+      </Link>
+    </>
+  );
   function addToCart(id) {
     const cartItem = document.querySelectorAll(".cart-items")[0];
     const cartItem2 = document.querySelectorAll(".cart-items")[1];
     cartItem.innerHTML = +cartItem.innerHTML + 1;
     cartItem2.innerHTML = +cartItem.innerHTML;
-    const action = (snackbarId) => (
-      <>
-        <button
-          className="dismiss"
-          onClick={() => {
-            closeSnackbar(snackbarId);
-          }}
-        >
-          Dismiss
-        </button>
-        <Link to={"/cart"} className="snack-bar-cart">
-          View cart
-        </Link>
-      </>
-    );
+    commerce.cart.add(id, 1).then((e) => console.log(e));
     enqueueSnackbar(message, {
       variant: "success",
       autoHideDuration: 2000,
@@ -47,16 +49,11 @@ export default function ProductCard({ e }) {
         horizontal: "left",
       },
     });
-    commerce.cart.add(id, 1);
+    console.log(message);
   }
-  const message = "Added to cart";
 
   return (
     <SnackbarProvider
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "left",
-      }}
       Components={{
         success: StyledMaterialDesignContent,
       }}
@@ -76,7 +73,7 @@ export default function ProductCard({ e }) {
               <FontAwesomeIcon icon="fa-regular fa-heart" />
             </div>
             <div className="inspect-icon">
-              <Link to={"/" + e.id}>
+              <Link to={"/shop/" + e.id}>
                 <FontAwesomeIcon icon="fa-regular fa-eye"></FontAwesomeIcon>
               </Link>
             </div>

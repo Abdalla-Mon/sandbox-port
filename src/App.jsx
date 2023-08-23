@@ -8,12 +8,16 @@ import Loader from "./component/fixedComponent/Loader";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SingleProductPage from "./component/products/SingleProductPage";
+import { commerce } from "./commerce/commerce";
+
 function App() {
-  const data = useSelector((e) => e.data);
+  const [data, setData] = useState([]);
+  // const data = useSelector((e) => e.data);
   console.log(data);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
+    commerce.products.list().then((e) => setData(e));
     setLoad(false);
   }, []);
 
@@ -25,7 +29,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route
-              path="/:prodId"
+              path="shop/:prodId"
               element={<SingleProductPage data={data} />}
             />
             <Route path={"/*"} element={<Home />}></Route>

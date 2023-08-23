@@ -1,6 +1,10 @@
 @use "../../varibales/varibales" as *;
 @forward "./product-card";
 @forward "./category";
+@forward "./single-product";
+.products-container {
+  padding: 70px 15px;
+}
 .product-top {
   padding: 20px 15px;
   background-color: $secondary-color;
@@ -19,9 +23,7 @@
     color: rgba(96, 105, 123, 0.35);
   }
 }
-.products-container {
-  padding: 70px 15px;
-}
+
 .products-area {
   min-height: 100vh;
   .grid {
