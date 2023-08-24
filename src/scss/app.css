@@ -1618,6 +1618,7 @@ footer .email {
 }
 
 .single-prod-top {
+  flex-wrap: wrap;
   width: 100%;
   background-color: #f6f7f9;
   padding: 20px 15px;
@@ -1942,6 +1943,11 @@ footer .email {
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
+}
+
+.notistack-SnackbarContainer {
+  position: fixed !important;
+  top: 5px !important;
 }
 
 .products {

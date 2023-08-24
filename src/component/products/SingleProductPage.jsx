@@ -26,7 +26,6 @@ export default function SingleProductPage({ data }) {
   useEffect(() => {
     dispatch(fetchProd(commerce.products.retrieve(prodId)));
   }, [prodId]);
-  console.log(prod);
   return (
     <>
       <section className="single-product">

@@ -4,6 +4,7 @@
   background-color: $primary-color;
 }
 .single-prod-top {
+  flex-wrap: wrap;
   width: 100%;
   background-color: $secondary-color;
   padding: 20px 15px;
@@ -325,4 +326,8 @@
       -o-transform: scale(1.2);
     }
   }
+}
+.notistack-SnackbarContainer {
+  position: fixed !important;
+  top: 5px !important;
 }

@@ -54,10 +54,6 @@ export default function SingleProdText({ arr, id }) {
   const colorsArr = ["#fab758", "#e2626b", "#7cb798", "#3f78e0", "#a07cc5"];
   return (
     <SnackbarProvider
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "left",
-      }}
       Components={{
         success: StyledMaterialDesignContent,
       }}
