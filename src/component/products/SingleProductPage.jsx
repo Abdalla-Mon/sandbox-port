@@ -37,7 +37,12 @@ export default function SingleProductPage({ data }) {
             <div className="swiper-width">
               {dataFetch.loading ? (
                 <Stack spacing={1}>
-                  <Skeleton variant="rounded" width={"100%"} height={600} />
+                  <div className="lap:hidden">
+                    <Skeleton variant="rounded" width={"100%"} height={400} />
+                  </div>
+                  <div className="lap:block hidden">
+                    <Skeleton variant="rounded" width={"100%"} height={500} />
+                  </div>
                   <div className="flex gap-4">
                     <Skeleton variant="rounded" width={"25%"} height={100} />
                     <Skeleton variant="rounded" width={"25%"} height={100} />
