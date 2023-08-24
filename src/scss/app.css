@@ -1669,7 +1669,7 @@ footer .email {
 .prod-text h3 {
   color: #343f52;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-size: 1.1rem;
 }
 .prod-text li {
@@ -1712,7 +1712,7 @@ footer .email {
   border: 2px solid #ffffff;
 }
 .prod-text .add-to-cart-2 {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .prod-text .qty {
   width: 60px;
@@ -1881,7 +1881,7 @@ footer .email {
 
 @media (max-width: 991px) {
   .prod-text {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 }
 @media (min-width: 992px) {

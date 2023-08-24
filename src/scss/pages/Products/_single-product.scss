@@ -54,7 +54,7 @@
   h3 {
     color: $heading-color;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-size: 1.1rem;
   }
   li {
@@ -100,7 +100,7 @@
     }
   }
   .add-to-cart-2 {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   .qty {
     width: 60px;
@@ -260,7 +260,7 @@
 }
 .prod-text {
   @media (max-width: 991px) {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   @media (min-width: 992px) {
     width: 50%;
