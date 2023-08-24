@@ -7,11 +7,24 @@ import { useEffect } from "react";
 import { commerce } from "../../commerce/commerce";
 import Sorting from "./Sorting";
 import Category from "./Category";
+import { MaterialDesignContent, SnackbarProvider } from "notistack";
+import styled from "@emotion/styled";
+import FilterPrice from "./FilterByPrice";
+import { Skeleton, Stack } from "@mui/material";
 export default function Products() {
+  const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
+    "&.notistack-MuiContent-success": {
+      backgroundColor: "#ffffff ",
+      color: "#343f52",
+    },
+  }));
+
   const mainData = useSelector((state) => state.data);
 
   let arr = mainData.mainArr.data;
+
   let wholeData = mainData.mainArr;
+
   if (arr !== undefined) {
     arr = arr.slice(0, 9);
   }
@@ -22,46 +35,60 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    // commerce.cart.retrieve().then((cart) => console.log(cart));
-    commerce.cart.refresh().then((cart) => console.log(cart));
+    commerce.cart.retrieve().then((cart) => console.log(cart));
+    // commerce.cart.refresh().then((cart) => console.log(cart));
   }, []);
 
   return (
-    <section className="products pt-20">
-      <TopProducts />
-      <section className="products-container">
-        <div className="container mx-auto">
-          <div className="product-flex  tab:flex tab:flex-row-reverse  tab:gap-14 lab:gap-20">
-            <div className="right w-full">
-              {mainData.loading ? null : (
-                <Sorting
-                  arr={wholeData.data}
-                  // meta={mainData.mainArr.meta}
-                  loading={mainData.loading}
-                />
-              )}
-              <div className="products-area">
-                {mainData.loading === false ? (
-                  <Routes>
-                    <Route index element={<Page arr={arr} />} />
-                    <Route
-                      path={":pageId"}
-                      element={<Page arr={wholeData.data} />}
-                    />
-                  </Routes>
-                ) : null}{" "}
-                {mainData.loading === false ? (
-                  <Pagination arr={mainData.mainArr} />
-                ) : null}
+    <SnackbarProvider
+      Components={{
+        success: StyledMaterialDesignContent,
+      }}
+    >
+      <section className="products pt-20">
+        <TopProducts />
+        <section className="products-container">
+          <div className="container mx-auto">
+            <div className="product-flex  tab:flex tab:flex-row-reverse  tab:gap-14 lab:gap-20">
+              <div className="right w-full">
+                <div className="flex justify-between items-center">
+                  {mainData.loading ? (
+                    <>
+                      <Skeleton width={120} height={30} />
+                      <Skeleton variant="rounded" width={150} height={30} />
+                    </>
+                  ) : null}
+                </div>
+                {mainData.loading ? null : (
+                  <Sorting arr={wholeData.data} loading={mainData.loading} />
+                )}
+                <div className="products-area">
+                  {mainData.loading ? <PageSkeleton /> : null}
+                  {mainData.loading === false ? (
+                    <Routes>
+                      <Route index element={<Page arr={arr} />} />
+                      <Route
+                        path={":pageId"}
+                        element={<Page arr={wholeData.data} />}
+                      />
+                    </Routes>
+                  ) : null}{" "}
+                  {mainData.loading === false ? (
+                    <Pagination arr={mainData.mainArr} />
+                  ) : null}
+                </div>
+              </div>
+              <div className="left mt-10 tab:mt-0">
+                <Category />
+                {mainData.loading ? null : (
+                  <FilterPrice arr={mainData.mainArr.data} />
+                )}
               </div>
             </div>
-            <div className="left mt-10 tab:mt-0">
-              <Category />
-            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </SnackbarProvider>
   );
 }
 
@@ -89,15 +116,36 @@ function Pagination({ arr }) {
 function TopProducts() {
   return (
     <div className=" product-top ">
-      <div className="container flex gap-3 items-center ">
-        <Link to="/">Home</Link>
+      <div className="container mx-auto flex gap-3 items-center ">
+        <Link to="/" className="a">
+          Home
+        </Link>
         <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
-        <p>Shop</p>
+        <a>Shop</a>
       </div>
     </div>
   );
 }
-
+function PageSkeleton() {
+  let arr = [];
+  for (let i = 0; i < 9; i++) {
+    arr.push(i);
+  }
+  return (
+    <div className="page-skeleton grid gap-10 lap:grid-cols-3 tab:grid-cols-2">
+      {arr.map((e) => {
+        return (
+          <Stack spacing={0.5} key={e}>
+            <Skeleton variant="rounded" width={"100%"} height={300} />
+            <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+            <Skeleton variant="rounded" width={"50%"} height={30} />
+            <Skeleton variant="rounded" width={"20%"} height={20} />
+          </Stack>
+        );
+      })}
+    </div>
+  );
+}
 export function Page({ arr }) {
   const pageId = window.location.hash;
   let num;
@@ -112,8 +160,7 @@ export function Page({ arr }) {
     <div className="grid gap-10 lap:grid-cols-3 tab:grid-cols-2">
       {arr.length === 0 ? (
         <p className="empty-page">
-          No product in this Page{" "}
-          <Link to={"/shop/page1"}>back to page 1?</Link>
+          No product in this page ,change the price filter or back to page1
         </p>
       ) : null}
       {arr.map((e) => {

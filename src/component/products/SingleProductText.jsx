@@ -15,9 +15,6 @@ export default function SingleProdText({ arr, id }) {
   const selectedEle = arr.filter((e) => e.id === id)[0];
   const [qt, setQty] = useState(1);
   const ref = useRef(null);
-  useEffect(() => {
-    console.log(1);
-  }, []);
 
   const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
     "&.notistack-MuiContent-success": {
@@ -41,7 +38,6 @@ export default function SingleProdText({ arr, id }) {
     </>
   );
   function addToCart(id, qty) {
-    console.log(qty);
     commerce.cart.add(id, qty || 1);
     enqueueSnackbar(message, {
       variant: "success",
@@ -52,11 +48,6 @@ export default function SingleProdText({ arr, id }) {
         horizontal: "left",
       },
     });
-    const cartItem = document.querySelectorAll(".cart-items")[0];
-    const cartItem2 = document.querySelectorAll(".cart-items")[1];
-    cartItem.innerHTML = +cartItem.innerHTML + +qty;
-    cartItem2.innerHTML = +cartItem.innerHTML;
-    console.log(3);
   }
   let message = "Added to cart";
   const navArr = ["sm", "s", "m", "l", "xl"];

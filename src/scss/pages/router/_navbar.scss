@@ -43,9 +43,9 @@ header {
   width: 100%;
   position: absolute;
   color: $bg-white;
-
+  height: 75px;
   nav {
-    min-height: 74px;
+    height: 75px;
     .pc-nav {
       > li {
         > a {

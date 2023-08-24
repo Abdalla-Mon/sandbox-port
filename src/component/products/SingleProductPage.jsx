@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleProdText from "./SingleProductText";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProd } from "../../store/fetchData/fetchProd";
+import { Stack, Skeleton } from "@mui/material";
+
 export default function SingleProductPage({ data }) {
   const dataFetch = useSelector((s) => s.prod);
   let { prodId } = useParams();
@@ -29,13 +31,22 @@ export default function SingleProductPage({ data }) {
     <>
       <section className="single-product">
         <div className="single-prod-top">
-          <div className="container mx-auto">
-            <SingleProdTop data={data} id={prodId} />
-          </div>
+          <SingleProdTop data={data} id={prodId} />
         </div>
         <div className="container mx-auto">
           <div className="single-prod-container lap:flex gap-10">
             <div className="swiper-width">
+              {dataFetch.loading ? (
+                <Stack spacing={1}>
+                  <Skeleton variant="rounded" width={"100%"} height={600} />
+                  <div className="flex gap-4">
+                    <Skeleton variant="rounded" width={"25%"} height={100} />
+                    <Skeleton variant="rounded" width={"25%"} height={100} />
+                    <Skeleton variant="rounded" width={"25%"} height={100} />
+                    <Skeleton variant="rounded" width={"25%"} height={100} />
+                  </div>
+                </Stack>
+              ) : null}
               {dataFetch.loading === false ? (
                 <SwiperSlider images={prod.assets} />
               ) : null}
@@ -43,7 +54,9 @@ export default function SingleProductPage({ data }) {
             <div className="prod-text ">
               {data.data ? (
                 <SingleProdText arr={data.data} id={prodId} />
-              ) : null}
+              ) : (
+                <SingleProdTextSkeleton />
+              )}
             </div>
           </div>
           {data.data ? <Description /> : null}
@@ -52,7 +65,12 @@ export default function SingleProductPage({ data }) {
       <section className="related-prod ">
         <div className="container mx-auto">
           <h1>You might also like</h1>
-          {data.data ? <RelatedProd data={data.data} id={prodId} /> : null}
+
+          {data.data ? (
+            <RelatedProd data={data.data} id={prodId} />
+          ) : (
+            <RelatedSkeleton />
+          )}
         </div>
       </section>
     </>
@@ -65,7 +83,7 @@ function SingleProdTop({ id, data }) {
     selectedEle = dataArr.filter((e) => e.id === id)[0];
   }
   return (
-    <div className="container flex gap-3 items-center ">
+    <div className="container mx-auto flex gap-3 items-center ">
       <Link to="/" className="a">
         Home
       </Link>
@@ -221,5 +239,55 @@ function RelatedSwiper({ data, num, className }) {
         );
       })}
     </Swiper>
+  );
+}
+
+function SingleProdTextSkeleton() {
+  return (
+    <Stack spacing={1}>
+      <Skeleton variant="rectangular" width={"60%"} height={30} />
+      <Skeleton variant="rectangular" width={80} height={20} />
+      <Skeleton variant="text" sx={{ fontSize: "2rem" }} />
+      <Skeleton variant="text" sx={{ fontSize: "8rem" }} />
+      <Skeleton variant="rectangular" width={80} height={20} />
+      <div className="flex gap-2 mt-3">
+        <Skeleton variant="rounded" width={"15%"} height={30} />
+        <Skeleton variant="rounded" width={"15%"} height={30} />
+        <Skeleton variant="rounded" width={"15%"} height={30} />
+        <Skeleton variant="rounded" width={"15%"} height={30} />
+      </div>
+      <Skeleton variant="rectangular" width={80} height={20} />
+      <div className="flex gap-2 mt-3">
+        <Skeleton variant="circular" width={40} height={40} />
+        <Skeleton variant="circular" width={40} height={40} />
+        <Skeleton variant="circular" width={40} height={40} />
+        <Skeleton variant="circular" width={40} height={40} />
+      </div>
+      <div className="flex gap-1 mt-3">
+        <Skeleton variant="rounded" width={40} height={40} />
+        <Skeleton variant="rounded" width={"100%"} height={40} />
+        <Skeleton variant="rounded" width={40} height={40} />
+      </div>
+    </Stack>
+  );
+}
+function RelatedSkeleton() {
+  let arr = [];
+  for (let i = 0; i < 3; i++) {
+    arr.push(i);
+  }
+  return (
+    <div className="page-skeleton grid gap-10 lap:grid-cols-3 tab:grid-cols-2">
+      {arr.map((e) => {
+        return (
+          <Stack spacing={0.5} key={e}>
+            <Skeleton variant="rounded" width={"100%"} height={300} />
+            <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+            <Skeleton variant="rounded" width={"50%"} height={30} />
+            <Skeleton variant="rounded" width={"20%"} height={20} />
+          </Stack>
+        );
+      })}
+    </div>
   );
 }

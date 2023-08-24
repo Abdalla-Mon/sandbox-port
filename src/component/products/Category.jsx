@@ -12,10 +12,10 @@ export default function Category() {
     dispatch(fetchCat(commerce.categories.list()));
   }, []);
   const catData = cat.catArr.data;
-  console.log(data);
 
   function filter(e) {
     const button = document.querySelector("#sort-them");
+    const priceBtn = document.querySelector("#price-btn");
     let arr = [];
     if (e.toLowerCase() === "all") {
       arr = subArr.slice().filter((el) => {
@@ -28,8 +28,11 @@ export default function Category() {
     }
     dispatch(filterData(arr));
     window.setTimeout(() => {
-      button.click();
+      priceBtn.click();
     }, 5);
+    window.setTimeout(() => {
+      button.click();
+    }, 10);
   }
   return (
     <div className="category">
@@ -40,8 +43,10 @@ export default function Category() {
           : catData.map((e) => {
               return (
                 <li
-                  onClick={(e) => {
-                    filter(e.target.textContent);
+                  id={e.name}
+                  onClick={(el) => {
+                    filter(el.target.textContent);
+                    window.localStorage.setItem("cat", e.name);
                   }}
                   key={e.id}
                 >

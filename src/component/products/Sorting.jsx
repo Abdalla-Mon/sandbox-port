@@ -11,7 +11,6 @@ export default function Sorting({ arr, loading }) {
   function sort(e) {
     const num = pageId.slice(pageId.length - 1);
     let array;
-    let curruentPage = num || 1;
     if (e === "low to high") {
       array = arr.slice().sort((a, b) => {
         return a.price.raw - b.price.raw;

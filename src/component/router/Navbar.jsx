@@ -37,17 +37,15 @@ export default function Navbar() {
     }
   });
   useEffect(() => {
-    window.onload = () => {
-      if (
-        window.location.hash === "#/" ||
-        window.location.hash === "" ||
-        window.location.hash === "#/services"
-      ) {
-        return setWhite(false);
-      } else {
-        return setWhite(true);
-      }
-    };
+    if (
+      window.location.hash === "#/" ||
+      window.location.hash === "" ||
+      window.location.hash === "#/services"
+    ) {
+      return setWhite(false);
+    } else {
+      return setWhite(true);
+    }
   }, []);
   let variants = {
     showNav: {
@@ -103,17 +101,10 @@ function Header({
   logo,
   classN,
   bg = { backgroundColor: "#ffffff" },
-  whiteColor,
   setWhite,
 }) {
   const [closed, setClosed] = useState(true);
-  const [cartItem, setCartItems] = useState(0);
-  useEffect(() => {
-    async function fetch() {
-      await commerce.cart.request().then((e) => setCartItems(e.total_items));
-    }
-    fetch();
-  });
+
   return (
     <header className={classN}>
       <div className="container mx-auto">
@@ -131,11 +122,16 @@ function Header({
           </div>
           <Ul className={"pc-nav hidden lap:flex "} setWhite={setWhite} />
           <div className="right flex gap-3 items-center relative">
-            <span className="absolute cart-items">{cartItem || 0}</span>
-            <FontAwesomeIcon
-              icon="fa-solid fa-cart-shopping"
-              className="cart-icon"
-            />
+            <Link
+              to="/cart"
+              className="cart-link"
+              onClick={() => scrollFnc(setWhite)}
+            >
+              <FontAwesomeIcon
+                icon="fa-solid fa-cart-shopping"
+                className="cart-icon"
+              />
+            </Link>
             <Link
               to="login"
               className="login"

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SingleProductPage from "./component/products/SingleProductPage";
 import { commerce } from "./commerce/commerce";
+import Cart from "./component/cart/Cart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -29,12 +30,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route
-              path="shop/:prodId"
+              path="shop/single-product/:prodId"
               element={<SingleProductPage data={data} />}
             />
             <Route path={"/*"} element={<Home />}></Route>
             <Route path="services" element={<Services />} />
             <Route path="shop/*" element={<Products />}></Route>
+            <Route path="cart/*" element={<Cart />}></Route>
           </Routes>
           <Footer />
         </>

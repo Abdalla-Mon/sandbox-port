@@ -4,9 +4,7 @@
     @media (min-width: 768px) {
       padding: 0 50px 0 0;
     }
-    @media (min-width: 992px) {
-      padding: 0 80px 0 0;
-    }
+
     h1 {
       font-size: 1.8rem;
       color: $heading-color;
@@ -36,4 +34,32 @@
       text-decoration: underline;
     }
   }
+}
+.price-inputs {
+  align-items: center;
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    span {
+      display: none;
+    }
+  }
+  input {
+    width: 80px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: $dark-text;
+    box-shadow: $box-shadow;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+#price-btn {
+  margin-top: 20px;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: $blue-btn-color;
+  color: #ffffff;
+  font-weight: bold;
 }
