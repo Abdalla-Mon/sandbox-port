@@ -259,6 +259,9 @@
   }
 }
 .prod-text {
+  @media (max-width: 991px) {
+    margin-bottom: 30px;
+  }
   @media (min-width: 992px) {
     width: 50%;
   }

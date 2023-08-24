@@ -1879,6 +1879,11 @@ footer .email {
   }
 }
 
+@media (max-width: 991px) {
+  .prod-text {
+    margin-bottom: 30px;
+  }
+}
 @media (min-width: 992px) {
   .prod-text {
     width: 50%;

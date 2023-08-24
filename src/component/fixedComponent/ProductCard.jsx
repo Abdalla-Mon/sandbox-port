@@ -50,7 +50,12 @@ export default function ProductCard({ e }) {
           <div className="love-icon">
             <FontAwesomeIcon icon="fa-regular fa-heart" />
           </div>
-          <div className="inspect-icon">
+          <div
+            className="inspect-icon"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             <Link to={"/shop/single-product/" + e.id}>
               <FontAwesomeIcon icon="fa-regular fa-eye"></FontAwesomeIcon>
             </Link>
