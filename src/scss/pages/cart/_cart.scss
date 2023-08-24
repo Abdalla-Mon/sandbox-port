@@ -109,6 +109,32 @@
       -moz-transition: 0.3s;
       -ms-transition: 0.3s;
       -o-transition: 0.3s;
+      z-index: 1;
+      position: relative;
+      &::after,
+      &::before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        transition: 0.3s;
+        background-color: $secondary-color;
+      }
+      &::after {
+        left: 0;
+      }
+      &::before {
+        right: 0;
+      }
+      &:hover {
+        color: $blue-btn-color;
+        &::after,
+        &::before {
+          width: 50%;
+        }
+      }
     }
   }
 }

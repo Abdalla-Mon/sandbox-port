@@ -16,11 +16,11 @@ export default function Cart() {
   return (
     <>
       {cartData ? null : <CartLoader />}
-      <section className="cart-page">
-        {cartData ? (
-          <>
+      {cartData ? (
+        <>
+          <section className="cart-page">
+            {" "}
             <TopCart />
-
             <div className="container mx-auto">
               <section className="cart-content">
                 <div className="flex gap-10 flex-col lap:flex-row">
@@ -35,9 +35,9 @@ export default function Cart() {
                 </div>
               </section>
             </div>
-          </>
-        ) : null}
-      </section>
+          </section>
+        </>
+      ) : null}
     </>
   );
 }

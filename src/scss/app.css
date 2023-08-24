@@ -2152,6 +2152,30 @@ footer .email {
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
+  z-index: 1;
+  position: relative;
+}
+.sub-total-area .checkout-btn a::after, .sub-total-area .checkout-btn a::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0;
+  transition: 0.3s;
+  background-color: #f6f7f9;
+}
+.sub-total-area .checkout-btn a::after {
+  left: 0;
+}
+.sub-total-area .checkout-btn a::before {
+  right: 0;
+}
+.sub-total-area .checkout-btn a:hover {
+  color: #3f78e0;
+}
+.sub-total-area .checkout-btn a:hover::after, .sub-total-area .checkout-btn a:hover::before {
+  width: 50%;
 }
 
 .cart-loader {
