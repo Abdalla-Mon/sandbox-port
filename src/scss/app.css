@@ -1650,6 +1650,11 @@ footer .email {
   font-weight: bold;
   font-size: 1.8rem;
 }
+@media (max-width: 991px) {
+  .prod-text h1 {
+    font-size: 1.6rem;
+  }
+}
 .prod-text h2 {
   color: #60697b;
   font-size: 1.1rem;
@@ -2104,6 +2109,11 @@ footer .email {
   padding: 15px;
   font-size: 0.9rem;
   color: #60697b;
+}
+@media (max-width: 768px) {
+  .cart-content table td {
+    padding: 12px;
+  }
 }
 .cart-content table td h3 {
   color: #343f52;

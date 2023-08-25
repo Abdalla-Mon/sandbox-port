@@ -39,6 +39,9 @@
     td {
       text-align: center;
       padding: 15px;
+      @media (max-width: 768px) {
+        padding: 12px;
+      }
       font-size: 0.9rem;
       color: $dark-text;
       h3 {

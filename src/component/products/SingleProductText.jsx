@@ -32,7 +32,13 @@ export default function SingleProdText({ arr, id }) {
       >
         Dismiss
       </button>
-      <Link to={"/cart"} className="snack-bar-cart">
+      <Link
+        to={"/cart"}
+        className="snack-bar-cart"
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }}
+      >
         View cart
       </Link>
     </>

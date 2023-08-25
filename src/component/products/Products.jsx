@@ -24,16 +24,15 @@ export default function Products() {
   let arr = mainData.mainArr.data;
 
   let wholeData = mainData.mainArr;
-  console.log(arr);
 
   if (arr !== undefined) {
     arr = arr.slice(0, 9);
   }
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchData());
+  // }, []);
 
   return (
     <SnackbarProvider
@@ -99,7 +98,12 @@ function Pagination({ arr }) {
       <ul className=" flex ">
         {array.map((e, i) => {
           return (
-            <Link to={"page" + (i + 1)} onClick={() => {}}>
+            <Link
+              to={"page" + (i + 1)}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "instant" });
+              }}
+            >
               {i + 1}
             </Link>
           );

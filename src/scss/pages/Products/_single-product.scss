@@ -34,6 +34,9 @@
     color: $heading-color;
     font-weight: bold;
     font-size: 1.8rem;
+    @media (max-width: 991px) {
+      font-size: 1.6rem;
+    }
   }
   h2 {
     color: $dark-text;

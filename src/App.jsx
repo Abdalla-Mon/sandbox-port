@@ -6,10 +6,11 @@ import Services from "./component/services/Services";
 import Products, { Page } from "./component/products/Products";
 import Loader from "./component/fixedComponent/Loader";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SingleProductPage from "./component/products/SingleProductPage";
 import { commerce } from "./commerce/commerce";
 import Cart from "./component/cart/Cart";
+import { fetchData } from "./store/fetchData/fetchData";
 
 function App() {
   const [data, setData] = useState([]);
@@ -20,6 +21,14 @@ function App() {
     commerce.products.list().then((e) => setData(e));
     setLoad(false);
   }, []);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+    console.log("render");
+  }, []);
+
   useEffect(() => {
     commerce.cart.retrieve();
     // commerce.cart.refresh().then((cart) => console.log(cart));
