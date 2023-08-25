@@ -1618,11 +1618,13 @@ footer .email {
 }
 
 .single-prod-top {
-  flex-wrap: wrap;
   width: 100%;
   background-color: #f6f7f9;
   padding: 20px 15px;
   color: #343f52;
+}
+.single-prod-top .container {
+  flex-wrap: wrap;
 }
 .single-prod-top .a {
   text-decoration: underline;

@@ -38,10 +38,10 @@ export default function SingleProductPage({ data }) {
               {dataFetch.loading ? (
                 <Stack spacing={1}>
                   <div className="lap:hidden">
-                    <Skeleton variant="rounded" width={"100%"} height={400} />
+                    <Skeleton variant="rounded" width={"100%"} height={300} />
                   </div>
                   <div className="lap:block hidden">
-                    <Skeleton variant="rounded" width={"100%"} height={500} />
+                    <Skeleton variant="rounded" width={"100%"} height={400} />
                   </div>
                   <div className="flex gap-4">
                     <Skeleton variant="rounded" width={"25%"} height={100} />
