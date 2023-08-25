@@ -20,7 +20,10 @@ function App() {
     commerce.products.list().then((e) => setData(e));
     setLoad(false);
   }, []);
-
+  useEffect(() => {
+    commerce.cart.retrieve();
+    // commerce.cart.refresh().then((cart) => console.log(cart));
+  }, []);
   return (
     <>
       {load ? <Loader /> : null}

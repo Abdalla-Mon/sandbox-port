@@ -1,11 +1,15 @@
+import Commerce from "@chec/commerce.js";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { commerce } from "../../commerce/commerce";
 const initialState = {
   loading: true,
   error: "",
   mainArr: [],
   subArr: [],
 };
+let commerce = new Commerce(
+  "pk_530786a34e7e798d4b20af99a738eb2203258ab32055c",
+  true
+);
 
 export const fetchData = createAsyncThunk("data/fetchData", (f) => {
   return commerce.products.list().then((product) => product);

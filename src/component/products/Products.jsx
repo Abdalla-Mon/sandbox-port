@@ -32,16 +32,9 @@ export default function Products() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const feching = async () => {
-      await dispatch(fetchData());
-    };
-    feching();
+    dispatch(fetchData());
   }, []);
 
-  useEffect(() => {
-    commerce.cart.retrieve();
-    // commerce.cart.refresh().then((cart) => console.log(cart));
-  }, []);
   return (
     <SnackbarProvider
       Components={{
