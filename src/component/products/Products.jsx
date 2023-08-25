@@ -24,6 +24,7 @@ export default function Products() {
   let arr = mainData.mainArr.data;
 
   let wholeData = mainData.mainArr;
+  console.log(arr);
 
   if (arr !== undefined) {
     arr = arr.slice(0, 9);
@@ -31,14 +32,16 @@ export default function Products() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData(commerce.products.list()));
+    const feching = async () => {
+      await dispatch(fetchData());
+    };
+    feching();
   }, []);
 
   useEffect(() => {
-    commerce.cart.retrieve().then((cart) => console.log(cart));
+    commerce.cart.retrieve();
     // commerce.cart.refresh().then((cart) => console.log(cart));
   }, []);
-
   return (
     <SnackbarProvider
       Components={{

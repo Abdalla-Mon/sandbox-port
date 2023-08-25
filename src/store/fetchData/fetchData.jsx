@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { commerce } from "../../commerce/commerce";
 const initialState = {
   loading: true,
   error: "",
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const fetchData = createAsyncThunk("data/fetchData", (f) => {
-  return f.then((product) => product);
+  return commerce.products.list().then((product) => product);
 });
 
 const dataSlice = createSlice({
@@ -23,7 +24,6 @@ const dataSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      // state.mainArr.length = 9;
       state.mainArr = action.payload;
       state.subArr = action.payload;
       state.loading = false;

@@ -5,10 +5,10 @@ import {
   enqueueSnackbar,
   MaterialDesignContent,
 } from "notistack";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { commerce } from "../../commerce/commerce";
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SingleProdText({ arr, id }) {

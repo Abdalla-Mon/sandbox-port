@@ -14,7 +14,6 @@ import Cart from "./component/cart/Cart";
 function App() {
   const [data, setData] = useState([]);
   // const data = useSelector((e) => e.data);
-  console.log(data);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
