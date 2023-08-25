@@ -18,7 +18,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProd } from "../../store/fetchData/fetchProd";
 import { Stack, Skeleton } from "@mui/material";
 
-export default function SingleProductPage({ data }) {
+function scrollFnc(setWhite) {
+  window.setTimeout(() => {
+    if (
+      window.location.hash === "#/" ||
+      window.location.hash === "" ||
+      window.location.hash === "#/services"
+    ) {
+      setWhite(false);
+    } else {
+      setWhite(true);
+    }
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 5);
+}
+
+export default function SingleProductPage({ data, setWhite }) {
   const dataFetch = useSelector((s) => s.prod);
   let { prodId } = useParams();
   const prod = dataFetch.mainObj;
@@ -30,7 +46,7 @@ export default function SingleProductPage({ data }) {
     <>
       <section className="single-product">
         <div className="single-prod-top">
-          <SingleProdTop data={data} id={prodId} />
+          <SingleProdTop data={data} id={prodId} setWhite={setWhite} />
         </div>
         <div className="container mx-auto">
           <div className="single-prod-container lap:flex gap-10">
@@ -80,7 +96,7 @@ export default function SingleProductPage({ data }) {
     </>
   );
 }
-function SingleProdTop({ id, data }) {
+function SingleProdTop({ id, data, setWhite }) {
   const dataArr = data.data;
   let selectedEle;
   if (dataArr) {
@@ -88,11 +104,23 @@ function SingleProdTop({ id, data }) {
   }
   return (
     <div className="container mx-auto flex gap-3 items-center ">
-      <Link to="/" className="a">
+      <Link
+        to="/"
+        className="a"
+        onClick={() => {
+          scrollFnc(setWhite);
+        }}
+      >
         Home
       </Link>
       <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
-      <Link to="/shop" className="a">
+      <Link
+        to="/shop"
+        className="a"
+        onClick={() => {
+          scrollFnc(setWhite);
+        }}
+      >
         Shop
       </Link>
       <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />

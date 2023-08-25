@@ -13,6 +13,8 @@ import Cart from "./component/cart/Cart";
 import { fetchData } from "./store/fetchData/fetchData";
 
 function App() {
+  const [whiteColor, setWhite] = useState(true);
+
   const [data, setData] = useState([]);
   // const data = useSelector((e) => e.data);
   const [load, setLoad] = useState(true);
@@ -38,15 +40,18 @@ function App() {
       {load ? <Loader /> : null}
       {load ? null : (
         <>
-          <Navbar />
+          <Navbar setWhite={setWhite} whiteColor={whiteColor} />
           <Routes>
             <Route
               path="shop/single-product/:prodId"
-              element={<SingleProductPage data={data} />}
+              element={<SingleProductPage data={data} setWhite={setWhite} />}
             />
             <Route path={"/*"} element={<Home />}></Route>
             <Route path="services" element={<Services />} />
-            <Route path="shop/*" element={<Products />}></Route>
+            <Route
+              path="shop/*"
+              element={<Products setWhite={setWhite} />}
+            ></Route>
             <Route path="cart/*" element={<Cart />}></Route>
           </Routes>
           <Footer />

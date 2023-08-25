@@ -11,7 +11,24 @@ import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import styled from "@emotion/styled";
 import FilterPrice from "./FilterByPrice";
 import { Skeleton, Stack } from "@mui/material";
-export default function Products() {
+
+function scrollFnc(setWhite) {
+  window.setTimeout(() => {
+    if (
+      window.location.hash === "#/" ||
+      window.location.hash === "" ||
+      window.location.hash === "#/services"
+    ) {
+      setWhite(false);
+    } else {
+      setWhite(true);
+    }
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 5);
+}
+
+export default function Products({ setWhite }) {
   const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
     "&.notistack-MuiContent-success": {
       backgroundColor: "#ffffff ",
@@ -41,7 +58,7 @@ export default function Products() {
       }}
     >
       <section className="products pt-20">
-        <TopProducts />
+        <TopProducts setWhite={setWhite} />
         <section className="products-container">
           <div className="container mx-auto">
             <div className="product-flex  tab:flex tab:flex-row-reverse  tab:gap-14 lab:gap-20">
@@ -113,11 +130,17 @@ function Pagination({ arr }) {
   );
 }
 
-function TopProducts() {
+function TopProducts({ setWhite }) {
   return (
     <div className=" product-top ">
       <div className="container mx-auto flex gap-3 items-center ">
-        <Link to="/" className="a">
+        <Link
+          to="/"
+          className="a"
+          onClick={() => {
+            scrollFnc(setWhite);
+          }}
+        >
           Home
         </Link>
         <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />

@@ -24,9 +24,8 @@ function scrollFnc(setWhite) {
   }, 5);
 }
 
-export default function Navbar() {
+export default function Navbar({ whiteColor, setWhite }) {
   const [header, showHeader] = useState(false);
-  const [whiteColor, setWhite] = useState(true);
 
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
