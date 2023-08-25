@@ -2078,7 +2078,11 @@ footer .email {
 }
 .cart-content table {
   width: 100%;
-  min-width: 600px;
+}
+@media (max-width: 991px) {
+  .cart-content table {
+    min-width: 550px;
+  }
 }
 .cart-content table .img-container {
   width: 120px;

@@ -18,23 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProd } from "../../store/fetchData/fetchProd";
 import { Stack, Skeleton } from "@mui/material";
 
-function scrollFnc(setWhite) {
-  window.setTimeout(() => {
-    if (
-      window.location.hash === "#/" ||
-      window.location.hash === "" ||
-      window.location.hash === "#/services"
-    ) {
-      setWhite(false);
-    } else {
-      setWhite(true);
-    }
-
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, 5);
-}
-
-export default function SingleProductPage({ data, setWhite }) {
+export default function SingleProductPage({ data }) {
   const dataFetch = useSelector((s) => s.prod);
   let { prodId } = useParams();
   const prod = dataFetch.mainObj;
@@ -46,7 +30,7 @@ export default function SingleProductPage({ data, setWhite }) {
     <>
       <section className="single-product">
         <div className="single-prod-top">
-          <SingleProdTop data={data} id={prodId} setWhite={setWhite} />
+          <SingleProdTop data={data} id={prodId} />
         </div>
         <div className="container mx-auto">
           <div className="single-prod-container lap:flex gap-10">
@@ -96,7 +80,7 @@ export default function SingleProductPage({ data, setWhite }) {
     </>
   );
 }
-function SingleProdTop({ id, data, setWhite }) {
+function SingleProdTop({ id, data }) {
   const dataArr = data.data;
   let selectedEle;
   if (dataArr) {
@@ -104,25 +88,9 @@ function SingleProdTop({ id, data, setWhite }) {
   }
   return (
     <div className="container mx-auto flex gap-3 items-center ">
-      <Link
-        to="/"
-        className="a"
-        onClick={() => {
-          scrollFnc(setWhite);
-        }}
-      >
-        Home
-      </Link>
+      <a>Home</a>
       <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
-      <Link
-        to="/shop"
-        className="a"
-        onClick={() => {
-          scrollFnc(setWhite);
-        }}
-      >
-        Shop
-      </Link>
+      <a>Shop</a>
       <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
       <a>{selectedEle ? selectedEle.categories[0].name : "loading..."}</a>
       <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />

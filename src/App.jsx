@@ -44,14 +44,11 @@ function App() {
           <Routes>
             <Route
               path="shop/single-product/:prodId"
-              element={<SingleProductPage data={data} setWhite={setWhite} />}
+              element={<SingleProductPage data={data} />}
             />
             <Route path={"/*"} element={<Home />}></Route>
             <Route path="services" element={<Services />} />
-            <Route
-              path="shop/*"
-              element={<Products setWhite={setWhite} />}
-            ></Route>
+            <Route path="shop/*" element={<Products />}></Route>
             <Route path="cart/*" element={<Cart />}></Route>
           </Routes>
           <Footer />

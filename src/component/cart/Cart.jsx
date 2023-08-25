@@ -65,7 +65,7 @@ function SubTotal({ arr }) {
         <h6>
           {arr
             ? arr.subtotal.raw === 0
-              ? "$ 00"
+              ? "$ 0"
               : arr.subtotal.formatted_with_symbol
             : "Upadting..."}
         </h6>
@@ -79,13 +79,17 @@ function SubTotal({ arr }) {
         <h6>
           {arr
             ? arr.subtotal.raw === 0
-              ? "$ 00"
+              ? "$ 0"
               : `$${arr.subtotal.raw + 10}.00`
             : "Upadting..."}
         </h6>
       </div>
       <div className="checkout-btn">
-        <Link className="checkout-link" to={"/checkout"}>
+        <Link
+          className="checkout-link"
+          to={"/checkout"}
+          style={arr.subtotal.raw === 0 ? { opacity: 0.6 } : { opacity: 1 }}
+        >
           {" "}
           Checkout
         </Link>
