@@ -88,7 +88,13 @@ function SubTotal({ arr }) {
         <Link
           className="checkout-link"
           to={"/checkout"}
-          style={arr.subtotal.raw === 0 ? { opacity: 0.6 } : { opacity: 1 }}
+          style={
+            arr
+              ? arr.subtotal.raw === 0
+                ? { opacity: 0.6 }
+                : { opacity: 1 }
+              : null
+          }
         >
           {" "}
           Checkout
