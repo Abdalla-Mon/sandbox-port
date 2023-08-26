@@ -1,0 +1,98 @@
+@use "../../varibales/varibales" as *;
+.control-svg {
+  z-index: 1;
+  padding-bottom: 80px;
+  @media (max-width: 991px) {
+    padding-bottom: 50px;
+  }
+
+  > svg {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.working-steps {
+  background-color: $primary-color;
+  padding: 50px 15px;
+
+  .lineal-fill {
+    fill: #8caeec;
+  }
+  .lineal-stroke {
+    fill: #36496d;
+  }
+
+  .container > {
+    svg {
+      margin: auto;
+      width: 48px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      max-width: 560px;
+      margin: auto;
+      line-height: 1.2;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: $heading-color;
+    }
+  }
+  .blue-btn {
+    width: fit-content;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+
+  .right {
+    .ele {
+      > div {
+        padding: 22px 20px;
+        background-color: white;
+        box-shadow: 0 0 1px 0px #60697b2b, 0 0 0.5rem #60697b26;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        @media (max-width: 991px) {
+          margin-bottom: 30px;
+        }
+      }
+      .left-ele {
+        width: 50px;
+        height: 50px;
+        background-color: #e0e9fa;
+        color: #3f78e0;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .right-ele {
+        flex: 1;
+        h4 {
+          font-weight: bold;
+          font-size: 1.1rem;
+          color: $heading-color;
+        }
+        p {
+          color: $dark-text;
+        }
+      }
+    }
+    @media (min-wdith: 992px) {
+      .working-steps-1 {
+        padding: 0 40px 0 0;
+      }
+      .working-steps-2 {
+        padding-left: 80px;
+      }
+      .working-steps-3 {
+        padding: 0 40px;
+      }
+    }
+  }
+}

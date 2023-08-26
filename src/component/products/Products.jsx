@@ -32,6 +32,7 @@ export default function Products() {
   // const dispatch = useDispatch();
 
   // useEffect(() => {
+  // remember to make images lazy
   //   dispatch(fetchData());
   // }, []);
 

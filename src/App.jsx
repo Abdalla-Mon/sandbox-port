@@ -11,6 +11,7 @@ import SingleProductPage from "./component/products/SingleProductPage";
 import { commerce } from "./commerce/commerce";
 import Cart from "./component/cart/Cart";
 import { fetchData } from "./store/fetchData/fetchData";
+import AboutPage from "./component/about/AboutPage";
 
 function App() {
   const [whiteColor, setWhite] = useState(true);
@@ -28,7 +29,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchData());
-    console.log("render");
   }, []);
 
   useEffect(() => {
@@ -50,6 +50,7 @@ function App() {
             <Route path="services" element={<Services />} />
             <Route path="shop/*" element={<Products />}></Route>
             <Route path="cart/*" element={<Cart />}></Route>
+            <Route path="about" element={<AboutPage />} />
           </Routes>
           <Footer />
         </>

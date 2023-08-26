@@ -1,0 +1,106 @@
+@use "../../varibales/varibales" as *;
+.about-page {
+  padding: 150px 0 0;
+  background-color: $secondary-color;
+  text-align: center;
+  h1 {
+    color: $heading-color;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  p {
+    color: $dark-text;
+    font-size: 1.1rem;
+  }
+  .about-landing {
+    overflow: hidden;
+    width: 100%;
+    svg {
+      position: absolute;
+      bottom: 0;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+.about-who {
+  padding: 50px 15px;
+  background-color: $primary-color;
+  > svg {
+  }
+}
+.about-w-imgs {
+  .imgs-container {
+    position: relative;
+    .left-img {
+      @media (min-width: 768px) {
+        width: 58%;
+        margin: 120px 0 0;
+        position: relative;
+        z-index: 1;
+      }
+      overflow: hidden;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+      @media (max-width: 767px) {
+        margin-bottom: 30px;
+      }
+    }
+    .dots {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: 0.75rem 0.75rem;
+      left: 15%;
+      opacity: 0.7;
+      top: 5%;
+      @media (max-width: 767px) {
+        display: none;
+      }
+
+      background-image: radial-gradient(#3f78e0 2px, transparent 2.5px);
+    }
+    .right-img {
+      @media (min-width: 768px) {
+        width: 70%;
+        position: absolute;
+        right: 0;
+      }
+      overflow: hidden;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+    }
+  }
+}
+.about-w-text {
+  > svg {
+    width: 48px;
+    margin-bottom: 0px;
+  }
+
+  .ele-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+  }
+  .lower-area {
+    @media (max-width: 991px) {
+      margin-bottom: 12px;
+    }
+    @media (min-width: 992px) {
+      width: 48%;
+      align-items: center;
+      p {
+        flex: 1;
+      }
+    }
+  }
+}

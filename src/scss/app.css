@@ -1010,6 +1010,7 @@ footer .email label input {
   width: 100%;
   background-color: transparent;
   color: #ffffff;
+  outline: none;
 }
 footer .email label p {
   font-size: 12px;
@@ -2254,6 +2255,210 @@ footer .email {
     left: 50;
   }
 }
+.about-page {
+  padding: 150px 0 0;
+  background-color: #f6f7f9;
+  text-align: center;
+}
+.about-page h1 {
+  color: #343f52;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.about-page p {
+  color: #60697b;
+  font-size: 1.1rem;
+}
+.about-page .about-landing {
+  overflow: hidden;
+  width: 100%;
+}
+.about-page .about-landing svg {
+  position: absolute;
+  bottom: 0;
+}
+.about-page .about-landing img {
+  width: 100%;
+}
+
+.about-who {
+  padding: 50px 15px;
+  background-color: #fefefe;
+}
+.about-w-imgs .imgs-container {
+  position: relative;
+}
+.about-w-imgs .imgs-container .left-img {
+  overflow: hidden;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .about-w-imgs .imgs-container .left-img {
+    width: 58%;
+    margin: 120px 0 0;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-width: 767px) {
+  .about-w-imgs .imgs-container .left-img {
+    margin-bottom: 30px;
+  }
+}
+.about-w-imgs .imgs-container .dots {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-size: 0.75rem 0.75rem;
+  left: 15%;
+  opacity: 0.7;
+  top: 5%;
+  background-image: radial-gradient(#3f78e0 2px, transparent 2.5px);
+}
+@media (max-width: 767px) {
+  .about-w-imgs .imgs-container .dots {
+    display: none;
+  }
+}
+.about-w-imgs .imgs-container .right-img {
+  overflow: hidden;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .about-w-imgs .imgs-container .right-img {
+    width: 70%;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.about-w-text > svg {
+  width: 48px;
+  margin-bottom: 0px;
+}
+.about-w-text .ele-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4%;
+}
+@media (max-width: 991px) {
+  .about-w-text .lower-area {
+    margin-bottom: 12px;
+  }
+}
+@media (min-width: 992px) {
+  .about-w-text .lower-area {
+    width: 48%;
+    align-items: center;
+  }
+  .about-w-text .lower-area p {
+    flex: 1;
+  }
+}
+
+.control-svg {
+  z-index: 1;
+  padding-bottom: 80px;
+}
+@media (max-width: 991px) {
+  .control-svg {
+    padding-bottom: 50px;
+  }
+}
+.control-svg > svg {
+  position: absolute;
+  bottom: 0;
+}
+
+.working-steps {
+  background-color: #fefefe;
+  padding: 50px 15px;
+}
+.working-steps .lineal-fill {
+  fill: #8caeec;
+}
+.working-steps .lineal-stroke {
+  fill: #36496d;
+}
+.working-steps .container > svg {
+  margin: auto;
+  width: 48px;
+}
+.working-steps .container > h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  max-width: 560px;
+  margin: auto;
+  line-height: 1.2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #343f52;
+}
+.working-steps .blue-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+.working-steps .right .ele > div {
+  padding: 22px 20px;
+  background-color: white;
+  box-shadow: 0 0 1px 0px rgba(96, 105, 123, 0.168627451), 0 0 0.5rem rgba(96, 105, 123, 0.1490196078);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+@media (max-width: 991px) {
+  .working-steps .right .ele > div {
+    margin-bottom: 30px;
+  }
+}
+.working-steps .right .ele .left-ele {
+  width: 50px;
+  height: 50px;
+  background-color: #e0e9fa;
+  color: #3f78e0;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.working-steps .right .ele .right-ele {
+  flex: 1;
+}
+.working-steps .right .ele .right-ele h4 {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #343f52;
+}
+.working-steps .right .ele .right-ele p {
+  color: #60697b;
+}
+@media (min-wdith: 992px) {
+  .working-steps .right .working-steps-1 {
+    padding: 0 40px 0 0;
+  }
+  .working-steps .right .working-steps-2 {
+    padding-left: 80px;
+  }
+  .working-steps .right .working-steps-3 {
+    padding: 0 40px;
+  }
+}
+
 .white-btn,
 .blue-btn {
   cursor: pointer;
@@ -2477,4 +2682,19 @@ footer .email {
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
+}
+
+.left-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343f52;
+}
+.left-text h3 {
+  font-size: 1.2rem;
+  color: #60697b;
+  margin: 15px 0;
+}
+.left-text h5 {
+  color: #60697b;
+  margin-bottom: 15px;
 }/*# sourceMappingURL=app.css.map */

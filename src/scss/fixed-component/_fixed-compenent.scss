@@ -81,3 +81,20 @@
   animation: ripple 1.5s linear infinite;
   -webkit-animation: ripple 1.5s linear infinite;
 }
+
+.left-text {
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $heading-color;
+  }
+  h3 {
+    font-size: 1.2rem;
+    color: $dark-text;
+    margin: 15px 0;
+  }
+  h5 {
+    color: $dark-text;
+    margin-bottom: 15px;
+  }
+}
