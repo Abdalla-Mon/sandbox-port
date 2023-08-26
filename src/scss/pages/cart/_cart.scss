@@ -145,11 +145,11 @@
 }
 .cart-loader {
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $blue-color;
+  background-color: $heading-color;
   span {
     @media (max-width: 768px) {
       font-size: 4rem !important;
@@ -158,7 +158,7 @@
     font-weight: bold;
     position: relative;
     display: block;
-    color: white;
+    color: #cacaca;
 
     &::after {
       content: "";

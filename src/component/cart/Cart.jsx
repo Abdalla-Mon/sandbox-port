@@ -12,7 +12,6 @@ export default function Cart() {
     commerce.cart.contents().then((e) => setCartData(e));
     commerce.cart.request().then((e) => setSubTotal(e));
   }, []);
-  console.log(subTotal);
   return (
     <>
       {cartData ? null : <CartLoader />}
