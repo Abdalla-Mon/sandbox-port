@@ -76,7 +76,7 @@
     ]
   },
   "about_slider_1": {
-    "img": "./sandbox-about/about-slider.jpg",
+    "img": "./sandbox-about/about-slider.png",
     "alt": "person wearing a suit",
     "data": [
       {
@@ -108,31 +108,31 @@
         "id": "about-slide-1",
         "heading": "Ahmed Saeed",
         "text": "Financial Analyst",
-        "img": "./sandbox-about/about-slider-2/image-1"
+        "img": "./sandbox-about/about-slider-2/image1.jpg"
       },
       {
         "id": "about-slide-2",
         "heading": "Cory Zamora",
         "text": "Marketing Specialist",
-        "img": "./sandbox-about/about-slider-2/image-2"
+        "img": "./sandbox-about/about-slider-2/image2.jpg"
       },
       {
         "id": "about-slide-3",
         "heading": "Abdalla Mo",
         "text": "Sales Specialist",
-        "img": "./sandbox-about/about-slider-2/image-3"
+        "img": "./sandbox-about/about-slider-2/image3.jpg"
       },
       {
         "id": "about-slide-4",
         "heading": "Amany Ahmed",
         "text": "Financial Analyst",
-        "img": "./sandbox-about/about-slider-2/image-4"
+        "img": "./sandbox-about/about-slider-2/image4.jpg"
       },
       {
         "id": "about-slide-5",
         "heading": "Amany Chan",
         "text": "Product Manager",
-        "img": "./sandbox-about/about-slider-2/image-5"
+        "img": "./sandbox-about/about-slider-2/image5.jpg"
       }
     ]
   }

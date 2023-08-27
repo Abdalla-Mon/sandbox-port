@@ -2,44 +2,35 @@ import BlueBtn from "../fixedComponent/BlueBtn";
 
 export default function WorkingSteps({ data }) {
   return (
-    <section className="control-svg relative">
-      <section className="working-steps">
-        <div className="container mx-auto">
-          <svg viewBox={data.icon.viewbox} xmlns="http://www.w3.org/2000/svg">
-            {data.icon.path.map((e, i) => {
-              if (e === "circle") {
-                return (
-                  <circle
-                    cx={e.cx}
-                    cy={e.cy}
-                    className={e.class}
-                    r={e.r}
-                    key={i}
-                  />
-                );
-              } else {
-                return <path className={e.class} key={i} d={e.d} />;
-              }
-            })}
-          </svg>
-          <h1>Here are 3 working steps to organize our business projects.</h1>
-          <div className="stpes-container lap:flex lap:flex-row-reverse gap-8">
-            <div className="right lap:w-3/6 flex flex-col justify-center">
-              <StepsRight data={data.data} />
-            </div>
-            <div className="left lap:w-3/6">
-              <StepsText />
-            </div>
+    <section className="working-steps relative">
+      <div className="container mx-auto">
+        <svg viewBox={data.icon.viewbox} xmlns="http://www.w3.org/2000/svg">
+          {data.icon.path.map((e, i) => {
+            if (e === "circle") {
+              return (
+                <circle
+                  cx={e.cx}
+                  cy={e.cy}
+                  className={e.class}
+                  r={e.r}
+                  key={i}
+                />
+              );
+            } else {
+              return <path className={e.class} key={i} d={e.d} />;
+            }
+          })}
+        </svg>
+        <h1>Here are 3 working steps to organize our business projects.</h1>
+        <div className="stpes-container lap:flex lap:flex-row-reverse gap-8">
+          <div className="right lap:w-3/6 flex flex-col justify-center">
+            <StepsRight data={data.data} />
+          </div>
+          <div className="left lap:w-3/6">
+            <StepsText />
           </div>
         </div>
-      </section>
-      {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#edf2fc"
-          fillOpacity="1"
-          d="M0,160L1440,256L1440,320L0,320Z"
-        ></path>
-      </svg> */}
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#edf2fc"

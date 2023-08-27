@@ -1,0 +1,80 @@
+@use "../../varibales/varibales" as *;
+
+.about-save {
+  padding: 80px 30px;
+  background-color: $primary-color;
+  .container > svg {
+    font-size: 1.5rem;
+    margin: auto;
+    display: block;
+    color: #36496d;
+  }
+  h1 {
+    margin: 30px auto 40px;
+    color: $heading-color;
+    max-width: 400px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.2rem;
+  }
+  .avater {
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  h3 {
+    color: $heading-color;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  h5 {
+    color: #aab0bc;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1.1rem;
+
+    color: $dark-text;
+  }
+  .swiper {
+    cursor: grab;
+
+    padding-bottom: 60px;
+  }
+  .swiper-wrapper {
+    padding: 10px 0px;
+  }
+  .swiper-slide {
+    padding: 0 5px;
+  }
+  .slide {
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 0 2px 1px rgb(170 176 188 / 16%), 0 0 2px 1px #0000001f;
+  }
+  .swiper-pagination-bullets {
+    span {
+      background-color: $dark-text;
+      width: 12px;
+      height: 12px;
+      &:hover {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+      }
+    }
+    .swiper-pagination-bullet-active {
+      background-color: transparent;
+      border: 3px solid $dark-text;
+    }
+  }
+  .slide-icons {
+    svg {
+    }
+  }
+}

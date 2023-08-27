@@ -18,14 +18,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProd } from "../../store/fetchData/fetchProd";
 import { Stack, Skeleton } from "@mui/material";
 
-export default function SingleProductPage({ data }) {
+export default function SingleProductPage({}) {
+  const data = useSelector((s) => s.data);
+
   const dataFetch = useSelector((s) => s.prod);
   let { prodId } = useParams();
   const prod = dataFetch.mainObj;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchProd(commerce.products.retrieve(prodId)));
+    dispatch(fetchProd(prodId));
   }, [prodId]);
+
   return (
     <>
       <section className="single-product">
@@ -56,22 +59,22 @@ export default function SingleProductPage({ data }) {
               ) : null}
             </div>
             <div className="prod-text ">
-              {data.data ? (
-                <SingleProdText arr={data.data} id={prodId} />
+              {data.loading === false ? (
+                <SingleProdText arr={data.mainArr.data} id={prodId} />
               ) : (
                 <SingleProdTextSkeleton />
               )}
             </div>
           </div>
-          {data.data ? <Description /> : null}
+          {data.loading === false ? <Description /> : null}
         </div>
       </section>
       <section className="related-prod ">
         <div className="container mx-auto">
           <h1>You might also like</h1>
 
-          {data.data ? (
-            <RelatedProd data={data.data} id={prodId} />
+          {data.loading === false ? (
+            <RelatedProd data={data.mainArr.data} id={prodId} />
           ) : (
             <RelatedSkeleton />
           )}
@@ -81,7 +84,7 @@ export default function SingleProductPage({ data }) {
   );
 }
 function SingleProdTop({ id, data }) {
-  const dataArr = data.data;
+  const dataArr = data.mainArr.data;
   let selectedEle;
   if (dataArr) {
     selectedEle = dataArr.filter((e) => e.id === id)[0];

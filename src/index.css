@@ -5,6 +5,7 @@
 @import "normalize.css"; // Note this
 body {
   font-family: "Space Grotesk", sans-serif;
+  min-height: 100vh;
 }
 * {
   font-family: "Space Grotesk", sans-serif;

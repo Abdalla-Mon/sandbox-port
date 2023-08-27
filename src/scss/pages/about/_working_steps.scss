@@ -5,15 +5,19 @@
   @media (max-width: 991px) {
     padding-bottom: 50px;
   }
-
-  > svg {
-    position: absolute;
-    bottom: 0;
-  }
 }
 .working-steps {
   background-color: $primary-color;
-  padding: 50px 15px;
+  padding: 50px 0 100px;
+  z-index: 1;
+  > svg {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+  .container {
+    padding: 0 15px;
+  }
 
   .lineal-fill {
     fill: #8caeec;
@@ -49,6 +53,21 @@
   }
 
   .right {
+    .working-stpes-1 {
+      @media (min-width: 992px) {
+        padding: 0 40px 0 0;
+      }
+    }
+    .working-stpes-2 {
+      @media (min-width: 992px) {
+        padding-left: 80px;
+      }
+    }
+    .working-stpes-3 {
+      @media (min-width: 992px) {
+        padding: 0 40px;
+      }
+    }
     .ele {
       > div {
         padding: 22px 20px;
@@ -83,16 +102,92 @@
         }
       }
     }
-    @media (min-wdith: 992px) {
-      .working-steps-1 {
-        padding: 0 40px 0 0;
+  }
+}
+.about-slider {
+  background-color: #edf2fc;
+  padding: 20px 15px 0;
+  .left {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-height: 600px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 767px) {
+      max-height: 400px;
+      margin-bottom: 20px;
+      justify-content: center;
+      img {
+        height: 400px !important;
       }
-      .working-steps-2 {
-        padding-left: 80px;
+    }
+    &::after {
+      content: "";
+      background-color: #e0e9fa;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 17%;
+      top: 20%;
+      z-index: -1;
+      border-radius: 50%;
+      @media (max-width: 991px) {
       }
-      .working-steps-3 {
-        padding: 0 40px;
+    }
+    img {
+      height: 100%;
+      position: relative;
+    }
+  }
+  .right {
+    @media (min-width: 992px) {
+      padding: 0px 80px;
+    }
+    @media (min-width: 768px) {
+      padding: 0px 20px;
+    }
+    margin: auto;
+  }
+  .swiper {
+    cursor: grab;
+    padding-bottom: 50px;
+    .swiper-slide {
+      @media (max-width: 767px) {
+        text-align: center;
       }
+    }
+  }
+  q,
+  h6 {
+    margin-bottom: 15px;
+    display: block;
+    color: $dark-text;
+    font-size: 1.1rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    color: $heading-color;
+  }
+  .swiper-pagination-bullets {
+    span {
+      background-color: $dark-text;
+      width: 12px;
+      height: 12px;
+      &:hover {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+      }
+    }
+    .swiper-pagination-bullet-active {
+      background-color: transparent;
+      border: 3px solid $dark-text;
     }
   }
 }

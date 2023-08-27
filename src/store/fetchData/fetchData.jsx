@@ -1,5 +1,6 @@
 import Commerce from "@chec/commerce.js";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 const initialState = {
   loading: true,
   error: "",
@@ -12,7 +13,7 @@ let commerce = new Commerce(
 );
 
 export const fetchData = createAsyncThunk("data/fetchData", (f) => {
-  return commerce.products.list().then((product) => product);
+  return axios.get("./db/data.json").then((e) => e.data);
 });
 
 const dataSlice = createSlice({

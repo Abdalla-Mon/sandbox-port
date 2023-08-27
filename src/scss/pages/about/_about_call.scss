@@ -1,0 +1,100 @@
+@use "../../varibales/varibales" as *;
+.upper-call {
+  background-color: #edf2fc;
+  padding: 100px 0 15rem;
+  z-index: 1;
+  > svg {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+  }
+  position: relative;
+  @media (max-width: 767px) {
+    padding: 60px 0 100px;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  svg {
+    font-size: 4rem;
+  }
+  h2 {
+    color: $heading-color;
+    font-size: 2.8rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  p {
+    color: $dark-text;
+    font-size: 1.1rem;
+  }
+}
+.lower-call {
+  position: relative;
+  padding: 0 0 80px;
+  z-index: 1;
+  .container {
+    padding: 0 15px;
+  }
+  .left {
+    .img-container {
+      position: relative;
+      z-index: 1;
+      &::before {
+        content: "";
+        background-image: radial-gradient(#3f78e0 2px, transparent 2.5px);
+        background-size: 0.75rem 0.75rem;
+        width: 100px;
+        height: 200px;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.7;
+      }
+      img {
+        margin-left: auto;
+        max-height: 500px;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+      }
+    }
+  }
+  .right {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    > svg {
+      font-size: 2rem;
+    }
+    > h2 {
+      color: $heading-color;
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+    .call-ele {
+      svg {
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+      h5 {
+        color: $heading-color;
+        font-size: 1.2rem;
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+      h6 {
+        color: $dark-text;
+        margin: 5px 0 20px 0;
+      }
+    }
+  }
+  //   > svg {
+  //     position: absolute;
+  //     bottom: -75px;
+  //     z-index: -1;
+  //   }
+}

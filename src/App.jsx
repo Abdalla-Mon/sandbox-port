@@ -3,7 +3,7 @@ import Home from "./component/home/Home";
 import Footer from "./component/router/Footer";
 import Navbar from "./component/router/Navbar";
 import Services from "./component/services/Services";
-import Products, { Page } from "./component/products/Products";
+import Products from "./component/products/Products";
 import Loader from "./component/fixedComponent/Loader";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,20 +12,18 @@ import { commerce } from "./commerce/commerce";
 import Cart from "./component/cart/Cart";
 import { fetchData } from "./store/fetchData/fetchData";
 import AboutPage from "./component/about/AboutPage";
+import Contact from "./component/contact/ContactPage";
 
 function App() {
   const [whiteColor, setWhite] = useState(true);
+  const dispatch = useDispatch();
 
-  const [data, setData] = useState([]);
-  // const data = useSelector((e) => e.data);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    commerce.products.list().then((e) => setData(e));
     setLoad(false);
+    setWhite(false);
   }, []);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchData());
@@ -44,13 +42,14 @@ function App() {
           <Routes>
             <Route
               path="shop/single-product/:prodId"
-              element={<SingleProductPage data={data} />}
+              element={<SingleProductPage />}
             />
             <Route path={"/*"} element={<Home />}></Route>
             <Route path="services" element={<Services />} />
             <Route path="shop/*" element={<Products />}></Route>
             <Route path="cart/*" element={<Cart />}></Route>
             <Route path="about" element={<AboutPage />} />
+            <Route path="contact" element={<Contact setWhite={setWhite} />} />
           </Routes>
           <Footer />
         </>

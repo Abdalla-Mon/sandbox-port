@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 const initialState = {
   loading: true,
   error: "",
@@ -6,7 +7,12 @@ const initialState = {
 };
 
 export const fetchProd = createAsyncThunk("prod/fetchProd", (f) => {
-  return f.then((e) => e);
+  return axios.get("./db/assets.json").then(
+    (e) =>
+      e.data.filter((e) => {
+        return e.id === f;
+      })[0]
+  );
 });
 
 const prodSlice = createSlice({
@@ -23,6 +29,7 @@ const prodSlice = createSlice({
     });
     builder.addCase(fetchProd.fulfilled, (state, action) => {
       // state.mainArr.length = 9;
+      console.log(action.payload);
       state.mainObj = action.payload;
       state.loading = false;
       state.error = "";

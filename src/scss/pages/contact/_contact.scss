@@ -1,0 +1,180 @@
+@use "../../varibales/varibales" as *;
+
+.contact-landing {
+  .top-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 150px;
+    height: 60vh;
+    @media (max-width: 767px) {
+      height: 55vh;
+    }
+    svg {
+      position: absolute;
+      bottom: -1px;
+      z-index: -1;
+    }
+    &::after {
+      content: "";
+      z-index: -3;
+      background-image: url("/contact.jpg");
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    &::before {
+      content: "";
+      z-index: -2;
+      background-color: black;
+      opacity: 0.2;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+  }
+  h1 {
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: $bg-white;
+    text-align: center;
+  }
+  .bottom-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 15px;
+  }
+}
+
+.map {
+  .click-marker {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.596);
+    position: relative;
+    z-index: 10000;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+    opacity: 1;
+    border-radius: 6px;
+    svg {
+      color: $blue-btn-color;
+      font-size: 2rem;
+    }
+  }
+  max-width: 1000px;
+  @media (max-width: 991px) {
+    max-width: 800px;
+  }
+  @media (max-width: 767px) {
+    max-width: 500px;
+  }
+  margin: auto;
+  margin-top: -200px;
+  background-color: $primary-color;
+  margin-bottom: 100px;
+  box-shadow: 0 0 10px 2px rgb(96 105 123 / 21%), 0 0 1px 1px rgb(0 0 0 / 8%);
+
+  border-radius: 10px;
+  overflow: hidden;
+  .leaflet-container {
+    height: 100%;
+    min-height: 320px;
+  }
+  .right {
+    padding: 90px 70px;
+    @media (max-width: 991px) {
+      padding: 50px;
+    }
+    @media (max-width: 767px) {
+      padding: 40px;
+    }
+  }
+  .call-ele {
+    svg {
+      font-size: 1.2rem;
+      margin-top: 12px;
+    }
+    .right-call {
+      margin: 5px 0 20px 0;
+    }
+    h5 {
+      color: $heading-color;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+    h6 {
+      color: $dark-text;
+    }
+  }
+}
+.contact-form {
+  background-color: $primary-color;
+  padding: 50px 15px 80px;
+  h1,
+  p {
+    text-align: center;
+    color: $dark-text;
+  }
+  h1 {
+    color: $heading-color !important;
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+  form {
+    margin-top: 30px;
+    .message-label {
+      width: 100% !important;
+    }
+    label {
+      cursor: text;
+      width: 100%;
+      @media (min-width: 992px) {
+        width: 50%;
+      }
+      background: white;
+      box-shadow: 0 0 8px 1px rgb(96 105 123 / 9%);
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: block;
+      textArea {
+        height: 100px;
+      }
+      textArea,
+      input {
+        width: 100%;
+        &:focus {
+          outline: none;
+          //   label h5 {
+          //     top: 0;
+          //     font-size: 16px;
+          //   }
+        }
+      }
+      h5 {
+        color: $dark-text;
+        position: relative;
+        top: 25%;
+        font-size: 20px;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+      }
+    }
+    .blue-btn {
+      width: fit-content;
+      margin: auto;
+      margin-top: 30px;
+      border-radius: 50px;
+    }
+  }
+}

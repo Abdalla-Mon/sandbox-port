@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { commerce } from "../../commerce/commerce";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCat } from "../../store/fetchData/fetchCat";
-import { fetchData, filterData } from "../../store/fetchData/fetchData";
+import { filterData } from "../../store/fetchData/fetchData";
 export default function Category() {
   const data = useSelector((s) => s.data);
   let subArr = data.subArr.data;
-  const cat = useSelector((s) => s.cat);
+  // const cat = useSelector((s) => s.cat);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCat(commerce.categories.list()));
-  }, []);
-  const catData = cat.catArr.data;
+
+  const catData = [
+    { id: "cat_31q0o3rn2wDdjR", name: "All", num: 16 },
+    { id: "cat_gvRjwOJepl4mNL", name: "Accessories", num: 5 },
+    { id: "cat_mOVKl4VnVoprRP", name: "Clothes", num: 3 },
+    { id: "cat_nPEVlNZvvla7dM", name: "Cosmetics", num: 2 },
+    { id: "cat_VPvL5zg06lAQkX", name: "Electronics", num: 3 },
+    { id: "cat_yA6nldB9KoEWbz", name: "Shoes", num: 3 },
+  ];
 
   function filter(e) {
     const button = document.querySelector("#sort-them");
@@ -38,22 +42,21 @@ export default function Category() {
     <div className="category">
       <h1>Category</h1>
       <ul>
-        {cat.loading
-          ? "loading..."
-          : catData.map((e) => {
-              return (
-                <li
-                  id={e.name}
-                  onClick={(el) => {
-                    filter(el.target.textContent);
-                    window.localStorage.setItem("cat", e.name);
-                  }}
-                  key={e.id}
-                >
-                  {e.name}
-                </li>
-              );
-            })}
+        {catData.map((e) => {
+          return (
+            <li
+              id={e.name}
+              onClick={(el) => {
+                filter(e.name);
+                window.localStorage.setItem("cat", e.name);
+              }}
+              key={e.id}
+            >
+              {e.name}
+              <span className="ml-3">({e.num})</span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
