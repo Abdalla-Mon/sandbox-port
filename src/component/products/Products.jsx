@@ -21,7 +21,7 @@ export default function Products() {
   }));
 
   const mainData = useSelector((state) => state.data);
-
+  const dispatch = useDispatch();
   let arr = mainData.mainArr.data;
 
   let wholeData = mainData.mainArr;
@@ -30,11 +30,9 @@ export default function Products() {
     arr = arr.slice(0, 9);
   }
   // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  // remember to make images lazy
-  //   dispatch(fetchData());
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
 
   return (
     <SnackbarProvider

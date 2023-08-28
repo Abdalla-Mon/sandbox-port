@@ -16,7 +16,6 @@ import Contact from "./component/contact/ContactPage";
 
 function App() {
   const [whiteColor, setWhite] = useState(true);
-  const dispatch = useDispatch();
 
   const [load, setLoad] = useState(true);
 
@@ -26,12 +25,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-
-  useEffect(() => {
     commerce.cart.retrieve();
-    // commerce.cart.refresh().then((cart) => console.log(cart));
   }, []);
   return (
     <>

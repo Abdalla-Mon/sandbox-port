@@ -52,7 +52,7 @@ header {
           padding: 25px 20px;
           display: block;
 
-          font-size: 1.2rem;
+          font-size: 1rem;
           font-weight: bold;
           &:hover {
             color: #ffffffb2;
@@ -95,7 +95,7 @@ header {
             padding: 0 15px 20px 10px;
             display: block;
             color: $heading-color;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             &:hover {
               color: $blue-color;
@@ -169,7 +169,7 @@ header {
         > a {
           display: flex;
           text-transform: capitalize;
-          font-size: 17px;
+          font-size: 16px;
           font-weight: bold;
           padding: 6px 0;
           cursor: pointer;

@@ -23,7 +23,7 @@ export default function ProductCard({ e }) {
     </>
   );
   function addToCart(id) {
-    commerce.cart.add(id, 1).then((e) => console.log(e));
+    commerce.cart.add(id, 1);
     enqueueSnackbar(message, {
       variant: "success",
       autoHideDuration: 2000,
