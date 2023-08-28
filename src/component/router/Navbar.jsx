@@ -13,7 +13,8 @@ function scrollFnc(setWhite) {
     if (
       window.location.hash === "#/" ||
       window.location.hash === "" ||
-      window.location.hash === "#/services"
+      window.location.hash === "#/services" ||
+      window.location.hash === "#/contact"
     ) {
       setWhite(false);
     } else {
