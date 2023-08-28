@@ -16,9 +16,11 @@ import Contact from "./component/contact/ContactPage";
 
 function App() {
   const [whiteColor, setWhite] = useState(true);
-
+  const dispatch = useDispatch();
   const [load, setLoad] = useState(true);
-
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
   useEffect(() => {
     setLoad(false);
     setWhite(false);

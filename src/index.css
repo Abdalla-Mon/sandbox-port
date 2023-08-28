@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "normalize.css"; // Note this
 body {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: Space Grotesk, sans-serif;
   min-height: 100vh;
 }
 * {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: Space Grotesk, sans-serif;
   box-sizing: border-box;
 }
 p {

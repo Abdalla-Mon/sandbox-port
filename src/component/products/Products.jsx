@@ -30,9 +30,9 @@ export default function Products() {
     arr = arr.slice(0, 9);
   }
   // const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchData());
+  // }, []);
 
   return (
     <SnackbarProvider

@@ -108,7 +108,6 @@ function SwiperSlider({ images }) {
       return `<span class="pagination-container  ${className}"><img src=${images[index].url} /></span>`;
     },
   };
-
   return (
     <>
       <Swiper
@@ -122,6 +121,7 @@ function SwiperSlider({ images }) {
         {images.map((e) => {
           return (
             <SwiperSlide key={e.id}>
+              {/* <img src={"./shop/" + e.filename} alt={e.name} /> */}
               <img src={e.url} alt="swiper-img" />
             </SwiperSlide>
           );
@@ -229,7 +229,6 @@ function RelatedSwiper({ data, num, className }) {
         clickable: true,
       }}
       spaceBetween={30}
-      // centeredSlides={true}
       slidesPerView={num}
       modules={[Pagination]}
       className={"related-swiper " + className}

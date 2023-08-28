@@ -38,6 +38,7 @@ export default function ProductCard({ e }) {
   return (
     <div className="product-card w-fit flex flex-col">
       <div className="card-img relative ">
+        {/* <img src={"./shop/" + e.image.filename} alt={e.name} /> */}
         <img src={e.image.url} alt={e.name} />
         <div
           onClick={() => addToCart(e.id)}
