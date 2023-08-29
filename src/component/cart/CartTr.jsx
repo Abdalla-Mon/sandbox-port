@@ -19,7 +19,7 @@ export default function TrTable({ el, increaseStop, setIncrease }) {
   const ref = useRef();
   const totalRef = useRef();
   const [refShow, setRefShow] = useState(1);
-
+  console.log(el);
   useEffect(() => {
     setRefShow(ref.current.textContent);
   }, []);
@@ -43,7 +43,7 @@ export default function TrTable({ el, increaseStop, setIncrease }) {
   return (
     <tr className={el.id}>
       <td className="img-container">
-        <img src={el.image.url} alt={el.product_name} />
+        <img src={"./shop/" + el.image.filename} alt={el.product_name} />
       </td>
       <td className="prod-name">
         <h3>{el.product_name}</h3>
