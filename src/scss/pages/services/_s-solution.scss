@@ -8,6 +8,11 @@
       width: 65%;
     }
   }
+  .upper-sol-text {
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
   .upper-sol-text,
   .lower-sol-text {
     @media (min-width: 992px) {

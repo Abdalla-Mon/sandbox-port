@@ -50,7 +50,13 @@ export default function ContactForm() {
               >
                 Message
               </motion.h5>
-              <motion.textarea id="cmessage" onFocus={() => setFocus(true)} />
+              <motion.textarea
+                id="cmessage"
+                onFocus={() => {
+                  setFocus(true);
+                  setZoom(true);
+                }}
+              />
             </motion.label>
           </div>
           <BlueBtn text="Send Text" />
@@ -71,21 +77,30 @@ function Inputs({ e, type, id }) {
         setFocus(false);
         x.value === "" ? setZoom(false) : null;
       }}
-      initial={{ border: "1px solid transparent" }}
+      initial={{ border: "1px solid rgb(236 242 252)" }}
       animate={
-        focus ? { borderColor: " #3f78e096" } : { borderColor: "transparent" }
+        focus
+          ? { borderColor: " #3f78e096" }
+          : { borderColor: "rgb(236 242 252)" }
       }
     >
       <motion.h5
-        initial={{ top: 13, fontSize: "18px" }}
+        initial={{ top: 12, fontSize: "18px" }}
         animate={
-          zoom ? { top: 0, fontSize: "14px" } : { top: 13, fontSize: "18px" }
+          zoom ? { top: 0, fontSize: "14px" } : { top: 12, fontSize: "18px" }
         }
         transition={{ type: "just", duration: 0 }}
       >
         {e}
       </motion.h5>
-      <motion.input id={id} type={type} onFocus={() => setFocus(true)} />
+      <motion.input
+        id={id}
+        type={type}
+        onFocus={() => {
+          setFocus(true);
+          setZoom(true);
+        }}
+      />
     </motion.label>
   );
 }

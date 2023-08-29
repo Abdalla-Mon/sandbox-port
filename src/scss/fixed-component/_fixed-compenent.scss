@@ -21,8 +21,8 @@
   h1 {
     font-weight: bold;
 
-    font-size: 2rem;
-    max-width: 800px;
+    font-size: calc(1.8rem + 0.1vh);
+    max-width: 600px;
     margin: 0 auto 40px;
   }
 }
@@ -84,12 +84,12 @@
 
 .left-text {
   h2 {
-    font-size: 2rem;
+    font-size: calc(1.7rem + 0.1vh);
     font-weight: bold;
     color: $heading-color;
   }
   h3 {
-    font-size: 1.2rem;
+    font-size: calc(1.1rem + 0.1vh);
     color: $dark-text;
     margin: 15px 0;
   }
@@ -120,4 +120,33 @@
   svg {
     color: rgba(96, 105, 123, 0.35);
   }
+}
+.h-color {
+  color: #343f52;
+}
+
+.text-color {
+  color: #60697b;
+}
+
+.sub-h-color {
+  color: #aab0bc;
+}
+
+.f-lg {
+  font-size: calc(1.6rem + 0.1vh);
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.p-section {
+  padding: 80px 15px;
+}
+
+.lineal-stroke {
+  fill: #36496d;
+}
+
+.lineal-fill {
+  fill: #8caeec;
 }
