@@ -6,7 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import CloseBtn from "../fixedComponent/CloseBtn";
 
 let navList = ["home", "pages", "about", "contact"];
-let pages = ["services", "shop", "career", "pricing"];
+let pages = ["services", "shop", "project"];
 
 function scrollFnc(setWhite) {
   window.setTimeout(() => {
