@@ -14,17 +14,17 @@ const head = {
 };
 
 export default function ChooseUs() {
+  const [id, setId] = useState("wy-1");
   return (
     <>
       <section className="choose-us">
         <div className="container mx-auto">
           <Heading h1={head.h1} h4={head.h4} />
           <div className="grid-links grid lap:grid-cols-3 gap-8">
-            <ChooseLinks />
+            <ChooseLinks setId={setId} />
           </div>
           <div className="routes">
-            <ChooseRoutes />
-            {/* <Outlet /> */}
+            <RouterEle id={id} />
           </div>
         </div>
       </section>
@@ -47,26 +47,27 @@ export function ChooseRoutes() {
   );
 }
 
-function ChooseLinks() {
-  const [active, setActive] = useState(true);
+function ChooseLinks({ setId }) {
+  const el = ["wy-1", "wy-2", "wy-3"];
   return (
     <>
-      {whyUs.map((e) => {
+      {whyUs.map((e, index) => {
         return (
-          <NavLink
-            className={
-              e.id === "wy-1"
-                ? active
-                  ? "why-link active"
-                  : "why-link"
-                : "why-link"
-            }
-            to={e.id}
+          <a
+            className={index === 0 ? "active why-link" : " why-link"}
             key={e.heading}
-            onClick={() => setActive(false)}
+            onClick={(f) => {
+              setId(el[index]);
+              document.querySelectorAll(".why-link").forEach((f) => {
+                f.classList.remove("active");
+              });
+              document
+                .querySelectorAll(".why-link")
+                [index].classList.add("active");
+            }}
           >
             <GridBox e={e} left={<Left e={e} />} />
-          </NavLink>
+          </a>
         );
       })}
     </>

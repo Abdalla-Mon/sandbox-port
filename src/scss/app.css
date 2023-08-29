@@ -510,6 +510,7 @@
   padding: 20px 16px 20px 24px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
