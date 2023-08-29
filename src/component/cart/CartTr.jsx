@@ -5,7 +5,6 @@ import { authFnc } from "./Cart";
 export default function TrTable({ el, increaseStop, setIncrease }) {
   const auth = authFnc();
   const remove = async (id, qty) => {
-    console.log(1);
     let ele = document.querySelector("table ." + id);
     auth.settingPopup(true);
     setIncrease(true);
@@ -19,7 +18,7 @@ export default function TrTable({ el, increaseStop, setIncrease }) {
   const ref = useRef();
   const totalRef = useRef();
   const [refShow, setRefShow] = useState(1);
-  console.log(el);
+
   useEffect(() => {
     setRefShow(ref.current.textContent);
   }, []);
