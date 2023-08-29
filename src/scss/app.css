@@ -787,10 +787,10 @@ header {
   width: 100%;
   position: absolute;
   color: #ffffff;
-  height: 75px;
+  height: 65px;
 }
 header nav {
-  height: 75px;
+  height: 65px;
 }
 header nav .pc-nav > li > a {
   padding: 25px 20px;
@@ -1977,7 +1977,7 @@ footer .email {
 }
 
 .products {
-  padding-top: 75px;
+  padding-top: 65px;
 }
 
 .products-container {
@@ -2055,7 +2055,7 @@ footer .email {
 }
 
 .cart-page {
-  padding: 75px 0 0;
+  padding: 65px 0 0;
   min-height: 80vh;
 }
 
@@ -2287,7 +2287,7 @@ footer .email {
   }
 }
 .about-page {
-  padding: 150px 0 0;
+  padding: 140px 0 0;
   background-color: #f6f7f9;
   text-align: center;
 }
@@ -2943,7 +2943,7 @@ footer .email {
 }
 
 .checkout {
-  padding: 75px 0 0;
+  padding: 65px 0 0;
   background-color: #fefefe;
 }
 .checkout .checkout-content {
