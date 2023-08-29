@@ -2761,11 +2761,14 @@ footer .email {
 .contact-landing .top-content {
   position: relative;
   z-index: 1;
-  height: 60vh;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .contact-landing .top-content {
-    height: 55vh;
+    height: 70vh;
   }
 }
 .contact-landing .top-content svg {
@@ -2799,18 +2802,19 @@ footer .email {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  margin: 150px 0;
+  padding-bottom: 10vh;
 }
-.contact-landing .bottom-content {
+
+.bottom-content {
   position: relative;
   z-index: 2;
   padding: 0 15px;
 }
 
 .map {
-  max-width: 1000px;
+  max-width: 900px;
   margin: auto;
-  margin-top: -120px;
+  margin-top: -28vh;
   background-color: #fefefe;
   margin-bottom: 100px;
   box-shadow: 0 0 10px 2px rgba(96, 105, 123, 0.21), 0 0 1px 1px rgba(0, 0, 0, 0.08);
@@ -2835,12 +2839,14 @@ footer .email {
 }
 @media (max-width: 991px) {
   .map {
-    max-width: 800px;
+    max-width: 750px;
+    margin-top: -30vh;
   }
 }
 @media (max-width: 767px) {
   .map {
     max-width: 500px;
+    margin-top: -26vh;
   }
 }
 .map .leaflet-container {

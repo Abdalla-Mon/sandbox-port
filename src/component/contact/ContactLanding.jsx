@@ -8,23 +8,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ContactLanding() {
   return (
-    <section className="contact-landing">
-      <div className="contianer mx-auto">
-        <div className="top-content">
-          <h1>Get in Touch</h1>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#fefefe"
-              fillOpacity="1"
-              d="M0,224L1440,128L1440,320L0,320Z"
-            ></path>
-          </svg>
+    <>
+      <section className="contact-landing">
+        <div className="contianer mx-auto">
+          <div className="top-content">
+            <h1>Get in Touch</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <path
+                fill="#fefefe"
+                fillOpacity="1"
+                d="M0,224L1440,128L1440,320L0,320Z"
+              ></path>
+            </svg>
+          </div>
         </div>
-        <div className="bottom-content">
-          <Map />
-        </div>
+      </section>
+      <div className="bottom-content">
+        <Map />
       </div>
-    </section>
+    </>
   );
 }
 function LocationMarker() {

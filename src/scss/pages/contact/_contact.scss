@@ -4,9 +4,12 @@
   .top-content {
     position: relative;
     z-index: 1;
-    height: 60vh;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media (max-width: 767px) {
-      height: 55vh;
+      height: 70vh;
     }
     svg {
       position: absolute;
@@ -40,13 +43,13 @@
     font-weight: bold;
     color: $bg-white;
     text-align: center;
-    margin: 150px 0;
+    padding-bottom: 10vh;
   }
-  .bottom-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 15px;
-  }
+}
+.bottom-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 15px;
 }
 
 .map {
@@ -67,15 +70,18 @@
       font-size: 2rem;
     }
   }
-  max-width: 1000px;
+  max-width: 900px;
+  margin: auto;
+  margin-top: -28vh;
+
   @media (max-width: 991px) {
-    max-width: 800px;
+    max-width: 750px;
+    margin-top: -30vh;
   }
   @media (max-width: 767px) {
     max-width: 500px;
+    margin-top: -26vh;
   }
-  margin: auto;
-  margin-top: -120px;
   background-color: $primary-color;
   margin-bottom: 100px;
   box-shadow: 0 0 10px 2px rgb(96 105 123 / 21%), 0 0 1px 1px rgb(0 0 0 / 8%);
