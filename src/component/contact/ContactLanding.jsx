@@ -20,9 +20,7 @@ export default function ContactLanding() {
             ></path>
           </svg>
         </div>
-      </div>
-      <div className="bottom-content">
-        <div className="container mx-auto">
+        <div className="bottom-content">
           <Map />
         </div>
       </div>

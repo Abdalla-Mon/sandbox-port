@@ -4,7 +4,6 @@
   .top-content {
     position: relative;
     z-index: 1;
-    padding-top: 150px;
     height: 60vh;
     @media (max-width: 767px) {
       height: 55vh;
@@ -41,6 +40,7 @@
     font-weight: bold;
     color: $bg-white;
     text-align: center;
+    margin: 150px 0;
   }
   .bottom-content {
     position: relative;
@@ -75,7 +75,7 @@
     max-width: 500px;
   }
   margin: auto;
-  margin-top: -200px;
+  margin-top: -120px;
   background-color: $primary-color;
   margin-bottom: 100px;
   box-shadow: 0 0 10px 2px rgb(96 105 123 / 21%), 0 0 1px 1px rgb(0 0 0 / 8%);

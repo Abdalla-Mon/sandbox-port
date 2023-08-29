@@ -105,7 +105,7 @@ function SwiperSlider({ images }) {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return `<span class="pagination-container  ${className}"><img src=${images[index].url} /></span>`;
+      return `<span class="pagination-container  ${className}"><img src="./shop/${images[index].filename}" /></span>`;
     },
   };
   return (
@@ -121,8 +121,8 @@ function SwiperSlider({ images }) {
         {images.map((e) => {
           return (
             <SwiperSlide key={e.id}>
-              {/* <img src={"./shop/" + e.filename} alt={e.name} /> */}
-              <img src={e.url} alt="swiper-img" />
+              <img src={"./shop/" + e.filename} alt={e.name} />
+              {/* <img src={e.url} alt="swiper-img" /> */}
             </SwiperSlide>
           );
         })}

@@ -2761,7 +2761,6 @@ footer .email {
 .contact-landing .top-content {
   position: relative;
   z-index: 1;
-  padding-top: 150px;
   height: 60vh;
 }
 @media (max-width: 767px) {
@@ -2800,6 +2799,7 @@ footer .email {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
+  margin: 150px 0;
 }
 .contact-landing .bottom-content {
   position: relative;
@@ -2810,7 +2810,7 @@ footer .email {
 .map {
   max-width: 1000px;
   margin: auto;
-  margin-top: -200px;
+  margin-top: -120px;
   background-color: #fefefe;
   margin-bottom: 100px;
   box-shadow: 0 0 10px 2px rgba(96, 105, 123, 0.21), 0 0 1px 1px rgba(0, 0, 0, 0.08);

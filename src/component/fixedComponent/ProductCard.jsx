@@ -38,8 +38,8 @@ export default function ProductCard({ e }) {
   return (
     <div className="product-card w-fit flex flex-col">
       <div className="card-img relative ">
-        {/* <img src={"./shop/" + e.image.filename} alt={e.name} /> */}
-        <img src={e.image.url} alt={e.name} />
+        <img src={"./shop/" + e.image.filename} alt={e.name} loading="lazy" />
+        {/* <img src={e.image.url} alt={e.name} /> */}
         <div
           onClick={() => addToCart(e.id)}
           className="add-to-cart font-bold text-lg flex justify-center items-center p-4 absolute"
