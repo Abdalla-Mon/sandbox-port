@@ -3,20 +3,35 @@ const aboutData = data.about;
 import "normalize.css";
 import BlueBtn from "../fixedComponent/BlueBtn";
 import GridBox from "../fixedComponent/GridBox";
+import { motion } from "framer-motion";
 export default function About() {
+  const routeVariants = {
+    initial: {
+      y: "100vh",
+    },
+    final: {
+      y: "0vh",
+      transition: {
+        type: "spring",
+        mass: 0.4,
+      },
+    },
+  };
   return (
-    <section className="about">
-      <div className="container mx-auto">
-        <div className="about-flex lap:flex justify-between pb-8">
-          <AboutImgs />
-          <AboutText />
+    <motion.div variants={routeVariants} initial="initial" animate="final">
+      <section className="about">
+        <div className="container mx-auto">
+          <div className="about-flex lap:flex justify-between pb-8">
+            <AboutImgs />
+            <AboutText />
+          </div>
+          <LowerAbout />
+          <div className="about-button mt-10 flex justify-center">
+            <BlueBtn text="More Details" />
+          </div>
         </div>
-        <LowerAbout />
-        <div className="about-button mt-10 flex justify-center">
-          <BlueBtn text="More Details" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </motion.div>
   );
 }
 
