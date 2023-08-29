@@ -8,26 +8,6 @@
 .products-container {
   padding: 70px 15px;
 }
-.product-top {
-  padding: 20px 15px;
-  background-color: $secondary-color;
-  color: $dark-text;
-  .a {
-    &:hover {
-      color: $blue-btn-color;
-    }
-    text-decoration: underline;
-
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-  }
-  svg {
-    color: rgba(96, 105, 123, 0.35);
-  }
-}
 
 .products-area {
   min-height: 100vh;

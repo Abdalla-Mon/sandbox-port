@@ -5,6 +5,7 @@ import { commerce } from "../../commerce/commerce";
 import CartTable from "./CartTable";
 import CartLoader from "./CartLoader";
 import CheckOut from "../checkout/Checkout";
+import TopEle from "../fixedComponent/TopEle";
 
 const AuthContext = createContext(null);
 
@@ -13,15 +14,22 @@ export const authFnc = () => {
 };
 
 export default function Cart() {
+  const [loading, setLoading] = useState(true);
   const [subTotal, setSubTotal] = useState(null);
   const [total, setTotal] = useState(null);
   const [popup, setPop] = useState(false);
   useEffect(() => {
-    commerce.cart.request().then((e) => {
-      setSubTotal(e);
-      setTotal(e.subtotal.raw);
-    });
+    const fetchData = async function () {
+      await commerce.cart.request().then((e) => {
+        setSubTotal(e);
+        setTotal(e.subtotal.raw);
+      });
+      setLoading(false);
+    };
+    fetchData();
   }, []);
+  console.log(loading + "loaded");
+
   function settingPopup(e) {
     return setPop(e);
   }
@@ -30,13 +38,15 @@ export default function Cart() {
   }
 
   return (
-    <AuthContext.Provider value={{ popup, settingPopup, settingTotal, total }}>
+    <AuthContext.Provider
+      value={{ popup, settingPopup, settingTotal, total, subTotal }}
+    >
       <Routes>
         <Route
           index
           element={
             <>
-              {total ? null : <CartLoader />}
+              {loading ? <CartLoader /> : null}
               {total === 0 ? (
                 <section className="cart-page">
                   <p className="empty-cart">Empty Cart</p>
@@ -45,7 +55,7 @@ export default function Cart() {
                 <>
                   <section className="cart-page">
                     {" "}
-                    <TopCart />
+                    <TopEle arr={["Home", "Cart"]} />
                     <div className="container mx-auto">
                       <section className="cart-content">
                         <div className="flex gap-10 flex-col lap:flex-row">
@@ -80,19 +90,6 @@ export default function Cart() {
   );
 }
 
-function TopCart() {
-  return (
-    <div className=" product-top ">
-      <div className="container mx-auto flex gap-3 items-center ">
-        <Link to="/" className="a">
-          Home
-        </Link>
-        <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
-        <a>Cart</a>
-      </div>
-    </div>
-  );
-}
 function SubTotal() {
   const auth = authFnc();
   return (
@@ -137,7 +134,10 @@ function SubTotal() {
           )}
         </h6>
       </div>
-      <div className="checkout-btn">
+      <div
+        className="checkout-btn"
+        onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+      >
         <Link
           className="checkout-link"
           to={"checkout"}

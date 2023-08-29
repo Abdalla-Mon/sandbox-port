@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BlueBtn from "../fixedComponent/BlueBtn";
 export default function ContactForm() {
   const [focus, setFocus] = useState(false);
+  const [zoom, setZoom] = useState(false);
 
   return (
     <section className="contact-form">
@@ -24,8 +25,13 @@ export default function ContactForm() {
           <div>
             <motion.label
               className="message-label"
-              htmlFor="message"
-              onBlur={() => setFocus(false)}
+              htmlFor="cmessage"
+              onBlur={() => {
+                setFocus(false);
+                document.querySelector("#cmessage").value === ""
+                  ? setZoom(false)
+                  : null;
+              }}
               initial={{ border: "1px solid transparent" }}
               animate={
                 focus
@@ -34,17 +40,17 @@ export default function ContactForm() {
               }
             >
               <motion.h5
-                initial={{ top: "25%", fontSize: "20px" }}
+                initial={{ top: 12, fontSize: "18px" }}
                 animate={
-                  focus
-                    ? { top: "0px", fontSize: "16px" }
-                    : { top: "25%", fontSize: "20px" }
+                  zoom
+                    ? { top: 0, fontSize: "14px" }
+                    : { top: 12, fontSize: "18px" }
                 }
                 transition={{ duration: 0.1 }}
               >
                 Message
               </motion.h5>
-              <motion.textarea id="message" onFocus={() => setFocus(true)} />
+              <motion.textarea id="cmessage" onFocus={() => setFocus(true)} />
             </motion.label>
           </div>
           <BlueBtn text="Send Text" />
@@ -55,22 +61,25 @@ export default function ContactForm() {
 }
 function Inputs({ e, type, id }) {
   const [focus, setFocus] = useState(false);
-
+  const [zoom, setZoom] = useState(false);
+  let x = document.querySelector("#" + id);
   return (
     <motion.label
+      className="fixed-label"
       htmlFor={id}
-      onBlur={() => setFocus(false)}
+      onBlur={() => {
+        setFocus(false);
+        x.value === "" ? setZoom(false) : null;
+      }}
       initial={{ border: "1px solid transparent" }}
       animate={
         focus ? { borderColor: " #3f78e096" } : { borderColor: "transparent" }
       }
     >
       <motion.h5
-        initial={{ top: "25%", fontSize: "20px" }}
+        initial={{ top: 13, fontSize: "18px" }}
         animate={
-          focus
-            ? { top: "0px", fontSize: "16px" }
-            : { top: "25%", fontSize: "20px" }
+          zoom ? { top: 0, fontSize: "14px" } : { top: 13, fontSize: "18px" }
         }
         transition={{ type: "just", duration: 0 }}
       >

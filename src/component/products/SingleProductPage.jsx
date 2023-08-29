@@ -89,6 +89,7 @@ function SingleProdTop({ id, data }) {
   if (dataArr) {
     selectedEle = dataArr.filter((e) => e.id === id)[0];
   }
+
   return (
     <div className="container mx-auto flex gap-3 items-center ">
       <a>Home</a>

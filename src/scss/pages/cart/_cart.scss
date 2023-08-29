@@ -1,6 +1,6 @@
 @use "../../varibales/varibales" as *;
 .cart-page {
-  padding: 75px 15px 0;
+  padding: 75px 0 0;
   min-height: 80vh;
 }
 .empty-cart {
@@ -11,7 +11,7 @@
   color: $heading-color;
 }
 .cart-content {
-  padding: 80px 0;
+  padding: 80px 15px;
   .table-scrol {
     overflow-x: auto;
   }
@@ -87,64 +87,65 @@
     font-weight: bold;
     color: $heading-color;
   }
-  .sub-total {
-    div {
-      padding: 20px 0;
-      box-shadow: 0px 2px 0 0 #f0f4fd;
-      h5 {
-        color: $heading-color;
-        font-weight: bold;
-      }
+}
+.sub-total {
+  div {
+    padding: 20px 0;
+    box-shadow: 0px 2px 0 0 #f0f4fd;
+    h5 {
+      color: $heading-color;
+      font-weight: bold;
     }
   }
-  .checkout-btn {
-    padding: 0 !important;
-    box-shadow: none !important;
-    margin-top: 30px;
-    a {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background-color: $blue-btn-color;
-      border-radius: 6px;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      box-shadow: $box-shadow;
-      color: white;
-      font-weight: bold;
-      text-align: center;
+}
+.checkout-btn {
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin-top: 30px;
+  a,
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: $blue-btn-color;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    box-shadow: $box-shadow;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    z-index: 1;
+    position: relative;
+    &::after,
+    &::before {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 0;
       transition: 0.3s;
-      -webkit-transition: 0.3s;
-      -moz-transition: 0.3s;
-      -ms-transition: 0.3s;
-      -o-transition: 0.3s;
-      z-index: 1;
-      position: relative;
+      background-color: $secondary-color;
+    }
+    &::after {
+      left: 0;
+    }
+    &::before {
+      right: 0;
+    }
+    &:hover {
+      color: $blue-btn-color;
       &::after,
       &::before {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 0;
-        transition: 0.3s;
-        background-color: $secondary-color;
-      }
-      &::after {
-        left: 0;
-      }
-      &::before {
-        right: 0;
-      }
-      &:hover {
-        color: $blue-btn-color;
-        &::after,
-        &::before {
-          width: 50%;
-        }
+        width: 50%;
       }
     }
   }

@@ -11,6 +11,7 @@ import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import styled from "@emotion/styled";
 import FilterPrice from "./FilterByPrice";
 import { Skeleton, Stack } from "@mui/material";
+import TopEle from "../fixedComponent/TopEle";
 
 export default function Products() {
   const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
@@ -41,7 +42,7 @@ export default function Products() {
       }}
     >
       <section className="products pt-20">
-        <TopProducts />
+        <TopEle arr={["Home", "Shop"]} />
         <section className="products-container">
           <div className="container mx-auto">
             <div className="product-flex  tab:flex tab:flex-row-reverse  tab:gap-14 lab:gap-20">
@@ -113,17 +114,6 @@ function Pagination({ arr }) {
   );
 }
 
-function TopProducts() {
-  return (
-    <div className=" product-top ">
-      <div className="container mx-auto flex gap-3 items-center ">
-        <a>Home</a>
-        <FontAwesomeIcon icon="fa-solid fa-chevron-right" className="text-sm" />
-        <a>Shop</a>
-      </div>
-    </div>
-  );
-}
 function PageSkeleton() {
   let arr = [];
   for (let i = 0; i < 9; i++) {

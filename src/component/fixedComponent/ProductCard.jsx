@@ -1,11 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Rating } from "@mui/material";
+import { Rating, Skeleton } from "@mui/material";
 import { commerce } from "../../commerce/commerce";
 
 import { closeSnackbar, enqueueSnackbar } from "notistack";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProductCard({ e }) {
+  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  useEffect(() => {
+    let x = document.querySelector("." + e.image.id);
+    if (x.height < 1) {
+      setLoading(!loading);
+    } else {
+      setLoading2(false);
+    }
+  }, [loading]);
   const message = "Added to cart";
   const action = (snackbarId) => (
     <>
@@ -38,7 +49,17 @@ export default function ProductCard({ e }) {
   return (
     <div className="product-card w-fit flex flex-col">
       <div className="card-img relative ">
-        <img src={"./shop/" + e.image.filename} alt={e.name} loading="lazy" />
+        {loading2 ? (
+          <Skeleton variant="rounded" width={"100%"} height={300} />
+        ) : null}
+
+        <img
+          className={e.image.id}
+          src={"./shop/" + e.image.filename}
+          alt={e.name}
+          loading="lazy"
+        />
+
         {/* <img src={e.image.url} alt={e.name} /> */}
         <div
           onClick={() => addToCart(e.id)}
