@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { SubTotal } from "./Checkout";
+import { useState } from "react";
 import { authFnc } from "../cart/Cart";
 
 export default function Right() {
@@ -26,7 +25,10 @@ function OrderSummary() {
               return (
                 <div className="line-item flex gap-6 lap:gap-5" key={e.id}>
                   <div className="img-container">
-                    <img src={e.image.url} alt={e.image.filename} />
+                    <img
+                      src={"/shop/" + e.image.filename}
+                      alt={e.image.filename}
+                    />
                   </div>
                   <div className="product-title">
                     <span>{e.quantity}</span>
@@ -106,7 +108,12 @@ function TotalPrice({ shipping }) {
               </span>
             </h6>
           </div>
-          <div className="checkout-btn">
+          <div
+            className="checkout-btn"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "instant" });
+            }}
+          >
             <button type="submit"> Place Order</button>
           </div>
         </div>

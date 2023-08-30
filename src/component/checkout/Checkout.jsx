@@ -14,13 +14,11 @@ export default function CheckOut() {
   const [review, setReview] = useState(false);
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
-  const [inter, setInter] = useState(5);
   const auth = authFnc();
   const subTotal = auth.subTotal;
   function submit(e) {
     setFormData(e);
     setReview(true);
-    console.log(e);
   }
   return (
     <SubTotal.Provider value={{ formData, review }}>
