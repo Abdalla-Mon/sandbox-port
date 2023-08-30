@@ -240,7 +240,7 @@ function Ul({ className, setClose, close, setWhite }) {
                   </a>
                   <motion.ul
                     initial={{ height: 0 }}
-                    animate={page ? { height: 160 } : { height: 0 }}
+                    animate={page ? { height: 120 } : { height: 0 }}
                     className={"pages-nav lap:hidden"}
                   >
                     {pages.map((el) => {
