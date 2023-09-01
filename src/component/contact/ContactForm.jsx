@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BlueBtn from "../fixedComponent/BlueBtn";
 export default function ContactForm() {
   const [focus, setFocus] = useState(false);

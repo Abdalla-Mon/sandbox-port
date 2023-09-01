@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { commerce } from "../../commerce/commerce";
@@ -28,7 +27,6 @@ export default function Cart() {
     };
     fetchData();
   }, []);
-  console.log(loading + "loaded");
 
   function settingPopup(e) {
     return setPop(e);

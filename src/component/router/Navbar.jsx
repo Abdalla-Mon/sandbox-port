@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { commerce } from "../../commerce/commerce";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import CloseBtn from "../fixedComponent/CloseBtn";
 
 let navList = ["home", "pages", "about", "contact"];
-let pages = ["services", "shop", "project"];
+let pages = ["services", "shop"];
 
 function scrollFnc(setWhite) {
   window.setTimeout(() => {
@@ -240,7 +239,7 @@ function Ul({ className, setClose, close, setWhite }) {
                   </a>
                   <motion.ul
                     initial={{ height: 0 }}
-                    animate={page ? { height: 120 } : { height: 0 }}
+                    animate={page ? { height: 80 } : { height: 0 }}
                     className={"pages-nav lap:hidden"}
                   >
                     {pages.map((el) => {
