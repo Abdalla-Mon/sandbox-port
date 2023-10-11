@@ -28,7 +28,6 @@ export default function SingleProductPage({}) {
   useEffect(() => {
     dispatch(fetchProd(prodId));
   }, [prodId]);
-
   return (
     <>
       <section className="single-product">
@@ -106,7 +105,9 @@ function SwiperSlider({ images }) {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return `<span class="pagination-container  ${className}"><img src="./shop/${images[index].filename}" /></span>`;
+      return `<span class="pagination-container  ${className}"><img src="./shop/${
+        images[index].filename.slice(0, -3) + "webp"
+      }" /></span>`;
     },
   };
   return (
@@ -120,10 +121,13 @@ function SwiperSlider({ images }) {
         className="mySwiper"
       >
         {images.map((e) => {
+          console.log(e);
           return (
             <SwiperSlide key={e.id}>
-              <img src={"./shop/" + e.filename} alt={e.name} />
-              {/* <img src={e.url} alt="swiper-img" /> */}
+              <img
+                src={"./shop/" + (e.filename.slice(0, -3) + "webp")}
+                alt={e.name}
+              />
             </SwiperSlide>
           );
         })}
@@ -213,13 +217,7 @@ function RelatedProd({ data, id }) {
   });
   return (
     <>
-      <RelatedSwiper className={"hidden lap:block"} num={3} data={relatedArr} />
-      <RelatedSwiper
-        className={"hidden tab:block lap:hidden"}
-        num={2}
-        data={relatedArr}
-      />
-      <RelatedSwiper className={"block tab:hidden"} num={1} data={relatedArr} />
+      <RelatedSwiper className={""} num={1} data={relatedArr} />
     </>
   );
 }
@@ -229,8 +227,12 @@ function RelatedSwiper({ data, num, className }) {
       pagination={{
         clickable: true,
       }}
+      breakpoints={{
+        768: { slidesPerView: 2 },
+        991: { slidesPerView: 3 },
+      }}
       spaceBetween={30}
-      slidesPerView={num}
+      slidesPerView={1}
       modules={[Pagination]}
       className={"related-swiper " + className}
     >

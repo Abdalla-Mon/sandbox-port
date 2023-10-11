@@ -13,7 +13,7 @@ export default function AboutLanding() {
       </div>
       <div className="about-landing relative">
         <img
-          src={"./sandbox-about/about-landing.jpg"}
+          src={"./sandbox-about/about-landing.webp"}
           alt={"group of people from different counteried smiling"}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

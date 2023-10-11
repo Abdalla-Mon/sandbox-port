@@ -8,15 +8,16 @@ import { useEffect, useRef, useState } from "react";
 
 export default function ProductCard({ e }) {
   const [loading, setLoading] = useState(true);
-  const [loading2, setLoading2] = useState(true);
+  const ref = useRef();
+
+  const source = e.image.filename.slice(0, -3) + "webp";
   useEffect(() => {
-    let x = document.querySelector("." + e.image.id);
-    if (x.height < 1) {
-      setLoading(!loading);
+    if (ref?.current?.height < 1) {
+      setLoading(true);
     } else {
-      setLoading2(false);
+      setLoading(false);
     }
-  }, [loading]);
+  }, [ref?.current?.height]);
   const message = "Added to cart";
   const action = (snackbarId) => (
     <>
@@ -49,18 +50,19 @@ export default function ProductCard({ e }) {
   return (
     <div className="product-card w-fit flex flex-col">
       <div className="card-img relative ">
-        {loading2 ? (
+        {loading ? (
           <Skeleton variant="rounded" width={"100%"} height={300} />
         ) : null}
 
         <img
           className={e.image.id}
-          src={"./shop/" + e.image.filename}
+          src={"./shop/" + source}
           alt={e.name}
           loading="lazy"
+          ref={ref}
+          onLoad={() => setLoading(false)}
         />
 
-        {/* <img src={e.image.url} alt={e.name} /> */}
         <div
           onClick={() => addToCart(e.id)}
           className="add-to-cart font-bold text-lg flex justify-center items-center p-4 absolute"

@@ -21,13 +21,6 @@ export default function AboutCall() {
         <div className="container mx-auto">
           <LowerCall />
         </div>
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#fefefe"
-            fillOpacity="1"
-            d="M0,96L1440,192L1440,0L0,0Z"
-          ></path>
-        </svg> */}
       </section>
     </>
   );
@@ -112,7 +105,7 @@ function LowerCall() {
       <div className="left lap:w-3/6">
         <div className="img-container">
           <img
-            src="./sandbox-about/about42x.jpg"
+            src="./sandbox-about/about42x.webp"
             alt="man with red hair staring at the camera"
           />
         </div>

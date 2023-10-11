@@ -14,7 +14,6 @@ export default function AboutSave({ data }) {
       setWidth(body.clientWidth);
     };
   }, [body.clientWidth]);
-  console.log(bodyWidth);
   return (
     <section className="about-save">
       <div className="container mx-auto">
@@ -40,7 +39,6 @@ function Slider({ data, num }) {
   return (
     <Swiper
       spaceBetween={20}
-      // centeredSlides={true}
       slidesPerView={num}
       className={"about-swiper-2 "}
       pagination={{
