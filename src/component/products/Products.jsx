@@ -22,7 +22,6 @@ export default function Products() {
   }));
 
   const mainData = useSelector((state) => state.data);
-  const dispatch = useDispatch();
   let arr = mainData.mainArr.data;
 
   let wholeData = mainData.mainArr;

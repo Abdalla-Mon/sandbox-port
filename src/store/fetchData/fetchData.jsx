@@ -13,7 +13,8 @@ let commerce = new Commerce(
 );
 
 export const fetchData = createAsyncThunk("data/fetchData", (f) => {
-  return axios.get("./db/data.json").then((e) => e.data);
+  // return axios.get("./db/data.json").then((e) => e.data);
+    return commerce.products.list().then((e) => e);
 });
 
 const dataSlice = createSlice({

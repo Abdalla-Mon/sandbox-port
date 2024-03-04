@@ -7,17 +7,15 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 export default function ProductCard({ e }) {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const ref = useRef();
-
-  const source = e.image.filename.slice(0, -3) + "webp";
-  useEffect(() => {
-    if (ref?.current?.height < 1) {
-      setLoading(true);
-    } else {
-      setLoading(false);
-    }
-  }, [ref?.current?.height]);
+  // useEffect(() => {
+  //   if (ref?.current?.height < 1) {
+  //     setLoading(true);
+  //   } else {
+  //     setLoading(false);
+  //   }
+  // }, [ref?.current?.height]);
   const message = "Added to cart";
   const action = (snackbarId) => (
     <>
@@ -50,17 +48,17 @@ export default function ProductCard({ e }) {
   return (
     <div className="product-card w-fit flex flex-col">
       <div className="card-img relative ">
-        {loading ? (
-          <Skeleton variant="rounded" width={"100%"} height={300} />
-        ) : null}
+        {/*{loading ? (*/}
+        {/*  <Skeleton variant="rounded" width={"100%"} height={300} />*/}
+        {/*) : null}*/}
 
         <img
           className={e.image.id}
-          src={"./shop/" + source}
+          src={e.image.url}
           alt={e.name}
           loading="lazy"
           ref={ref}
-          onLoad={() => setLoading(false)}
+          // onLoad={() => setLoading(false)}
         />
 
         <div
