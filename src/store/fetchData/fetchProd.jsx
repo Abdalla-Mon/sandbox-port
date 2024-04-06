@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import {commerce} from "../../commerce/commerce.jsx";
 const initialState = {
   loading: true,
   error: "",
@@ -7,12 +8,7 @@ const initialState = {
 };
 
 export const fetchProd = createAsyncThunk("prod/fetchProd", (f) => {
-  return axios.get("./db/assets.json").then(
-    (e) =>
-      e.data.filter((e) => {
-        return e.id === f;
-      })[0]
-  );
+  return commerce.products.retrieve(f);
 });
 
 const prodSlice = createSlice({

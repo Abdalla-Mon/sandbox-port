@@ -220,7 +220,7 @@ function MobUl({ closed, setClosed, setWhite }) {
     </motion.div>
   );
 }
-function Ul({ className, setClose, close, setWhite }) {
+function Ul({ className, setClose, setWhite }) {
   const [page, setPage] = useState(null);
 
   return (
@@ -294,3 +294,30 @@ function Ul({ className, setClose, close, setWhite }) {
     </ul>
   );
 }
+
+import PropTypes from 'prop-types';
+
+Navbar.propTypes = {
+  whiteColor: PropTypes.bool.isRequired,
+  setWhite: PropTypes.func.isRequired,
+};
+
+Header.propTypes = {
+  logo: PropTypes.string.isRequired,
+  classN: PropTypes.string,
+  bg: PropTypes.object,
+  setWhite: PropTypes.func.isRequired,
+};
+
+MobUl.propTypes = {
+  closed: PropTypes.bool.isRequired,
+  setClosed: PropTypes.func.isRequired,
+  setWhite: PropTypes.func.isRequired,
+};
+
+Ul.propTypes = {
+  className: PropTypes.string.isRequired,
+  setClose: PropTypes.func.isRequired,
+  close: PropTypes.bool.isRequired,
+  setWhite: PropTypes.func.isRequired,
+};

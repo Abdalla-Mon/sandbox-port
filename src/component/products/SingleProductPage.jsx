@@ -1,17 +1,14 @@
-import { Link, useParams } from "react-router-dom";
-// import "~slick-carousel/slick/slick.css";
-// import "~slick-carousel/slick/slick-theme.css";
+import {  useParams } from "react-router-dom";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProductCard from "../fixedComponent/ProductCard";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
-import { commerce } from "../../commerce/commerce";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleProdText from "./SingleProductText";
 import { useSelector, useDispatch } from "react-redux";
